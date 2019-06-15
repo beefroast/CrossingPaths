@@ -80,6 +80,8 @@ class ChooseStartingCharacterViewController: UIViewController, UITableViewDelega
         
         print("You selected \(characterData.name)")
         
+        self.performSegue(withIdentifier: "showVotes", sender: nil)
+        
     }
     
     

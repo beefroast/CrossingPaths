@@ -17,10 +17,12 @@ class EnterRoomNameViewController: UIViewController {
     
     
     @IBAction func onButtonPressed(_ sender: Any) {
-    let input = roomNameTextField.text
+        
+        let input = roomNameTextField.text
     
-    print(input)
+        print(input)
     
+        self.performSegue(withIdentifier: "pickCharacter", sender: nil)
     
     }
     
