@@ -8,32 +8,34 @@
 
 import UIKit
 import FirebaseDatabase
-
+import FirebaseAuth
 
 class ViewController: UIViewController {
 
+    var votesRef: DatabaseReference?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
+    var userId: String? {
+        get { return Auth.auth().currentUser?.uid }
+    }
+    
     
     @IBAction func onLeftButton(_ sender: Any) {
         
-        print("hello")
-        var ref: DatabaseReference!
+        guard let id = userId else { return }
         
-        ref = Database.database().reference()
-//        self.ref.child("users").child(user.uid).setValue(["username": username])
-        
-        ref.child("votes").child("left").setValue("Shazaam")
+        votesRef?.child("leftRightVotes").child(id).setValue("left")
     }
     
     @IBAction func onRightButton(_ sender: Any) {
-        print("yo")
-        var ref: DatabaseReference!
         
-        ref = Database.database().reference()
+        guard let id = userId else { return }
+        
+        votesRef?.child("leftRightVotes").child(id).setValue("right")
     }
     
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class EnterRoomNameViewController: UIViewController {
 
@@ -18,30 +19,57 @@ class EnterRoomNameViewController: UIViewController {
     
     @IBAction func onButtonPressed(_ sender: Any) {
         
-        let input = roomNameTextField.text
-    
-        print(input)
-    
-        self.performSegue(withIdentifier: "pickCharacter", sender: nil)
-    
+        guard let input = roomNameTextField.text else {
+            return
+        }
+        
+        let ref: DatabaseReference = Database.database().reference()
+        
+        let roomChild = ref.child(input)
+        
+        roomChild.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            // Code with the data for the room in here
+            
+            let allowsUsersToVoteOnFirstCharacter = "allowsUsersToVoteOnFirstCharacter"
+            
+            guard snapshot.hasChild(allowsUsersToVoteOnFirstCharacter) else {
+                // TODO: Tell the user the room doesn't exist and to try again
+                return
+            }
+            
+            guard let allowsVoteOnInitialCharacter = snapshot.childSnapshot(forPath: allowsUsersToVoteOnFirstCharacter).value as? Bool else {
+                return
+            }
+        
+            if allowsVoteOnInitialCharacter {
+                self.performSegue(withIdentifier: "pickCharacter", sender: nil)
+            } else {
+                self.performSegue(withIdentifier: "showVotes", sender: roomChild)
+            }
+            
+
+        }) { (error) in
+            // Code called/run if it didn't work and we got an error.
+            
+            print(error)
+            
+        }
+        
+        
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let vc = segue.destination as? ViewController {
+            vc.votesRef = sender as? DatabaseReference
+        }
     }
-    */
+    
+    
+
+    
+
 
 }
