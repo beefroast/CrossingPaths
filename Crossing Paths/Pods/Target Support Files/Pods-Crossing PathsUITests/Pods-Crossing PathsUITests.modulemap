@@ -1,0 +1,6 @@
+framework module Pods_Crossing_PathsUITests {
+  umbrella header "Pods-Crossing PathsUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
