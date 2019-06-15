@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B5509A92B64498945A78BDB /* Pods_Crossing_PathsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24529A3CEDB6DA1D327F38E1 /* Pods_Crossing_PathsTests.framework */; };
 		642DA3F222B4A187008717E5 /* ChooseStartingCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642DA3F122B4A187008717E5 /* ChooseStartingCharacterViewController.swift */; };
+		642DA3F422B4B698008717E5 /* EnterRoomNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642DA3F322B4B698008717E5 /* EnterRoomNameViewController.swift */; };
 		64A0979822AE62AD00000DB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0979722AE62AD00000DB6 /* AppDelegate.swift */; };
 		64A0979A22AE62AD00000DB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0979922AE62AD00000DB6 /* ViewController.swift */; };
 		64A0979D22AE62AD00000DB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64A0979B22AE62AD00000DB6 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		639FF9F7503F05213296D4F2 /* Pods-Crossing PathsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crossing PathsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crossing PathsUITests/Pods-Crossing PathsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		63FA3CC8309C37013AF30078 /* Pods-Crossing PathsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crossing PathsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crossing PathsUITests/Pods-Crossing PathsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		642DA3F122B4A187008717E5 /* ChooseStartingCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseStartingCharacterViewController.swift; sourceTree = "<group>"; };
+		642DA3F322B4B698008717E5 /* EnterRoomNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterRoomNameViewController.swift; sourceTree = "<group>"; };
 		64A0979422AE62AD00000DB6 /* Crossing Paths.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crossing Paths.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64A0979722AE62AD00000DB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64A0979922AE62AD00000DB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				64A097A622AE62B200000DB6 /* Info.plist */,
 				64A0979E22AE62AD00000DB6 /* Crossing_Paths.xcdatamodeld */,
 				642DA3F122B4A187008717E5 /* ChooseStartingCharacterViewController.swift */,
+				642DA3F322B4B698008717E5 /* EnterRoomNameViewController.swift */,
 			);
 			path = "Crossing Paths";
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64A097A022AE62AD00000DB6 /* Crossing_Paths.xcdatamodeld in Sources */,
+				642DA3F422B4B698008717E5 /* EnterRoomNameViewController.swift in Sources */,
 				64A0979A22AE62AD00000DB6 /* ViewController.swift in Sources */,
 				64A0979822AE62AD00000DB6 /* AppDelegate.swift in Sources */,
 				642DA3F222B4A187008717E5 /* ChooseStartingCharacterViewController.swift in Sources */,
