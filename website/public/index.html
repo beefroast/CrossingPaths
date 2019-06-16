@@ -31,10 +31,30 @@
     </style>
   </head>
   <body>
-  <p id="left_votes">1</p>
-      <p id="right_votes">2</p>
+      
+      <div id="main">
+            <p id="left_votes">1</p>
+            <p id="right_votes">2</p>
+      </div>
+      
+
 
     <script>
+        
+      function findGetParameter(parameterName) {
+            var result = null,
+                tmp = [];
+            location.search
+                .substr(1)
+                .split("&")
+                .forEach(function (item) {
+                  tmp = item.split("=");
+                  if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+                });
+            return result;
+        }
+        
+        
       document.addEventListener('DOMContentLoaded', function() {
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
         // // The Firebase SDK is initialized and available here!
@@ -46,9 +66,29 @@
         //
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-          firebase.database().ref('ABCD/leftRightVotes').on('value', snapshot => {
+          
+          
+          var roomName = findGetParameter("room");
+          console.log(roomName);
+          
+          if (roomName === null) {
               
-              console.log(JSON.stringify(snapshot));
+              // We show the input code in here, they can input a room name
+              
+              document.getElementById('main').innerHTML = '<form>' +
+                'Room name:<br>' +
+                '<input type="text" name="room" value="ABCD">' +
+                '<input type="submit" value="Submit">' +
+                '</form> ';
+              
+          
+          } else {
+              
+              // We now connect to the room they want
+              
+                firebase.database().ref(roomName + '/leftRightVotes').on('value', snapshot => {
+              
+              // Count up the votes...
               
               var leftVotes = 0;
               var rightVotes = 0;
@@ -64,10 +104,18 @@
                   
               });
               
-               
-             console.log("Left = " + leftVotes + ", right = " + rightVotes);
+              // Display the votes to the operator
+              
+              document.getElementById('left_votes').innerHTML = "Left: " + leftVotes;
+              document.getElementById('right_votes').innerHTML = "Right: " + rightVotes;
+              
               
           });
+              
+          }
+          
+          
+
           
 
       });

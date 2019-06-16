@@ -41,11 +41,26 @@ class EnterRoomNameViewController: UIViewController {
             guard let allowsVoteOnInitialCharacter = snapshot.childSnapshot(forPath: allowsUsersToVoteOnFirstCharacter).value as? Bool else {
                 return
             }
-        
-            if allowsVoteOnInitialCharacter {
+            
+            guard let status = (snapshot.childSnapshot(forPath: "status").value as? String).flatMap({ RoomStatus(rawValue: $0) }) else {
+                return
+            }
+            
+            
+            switch status {
+            case .waitingToStart:
+                break
+                
+            case .pickingCharacter:
                 self.performSegue(withIdentifier: "pickCharacter", sender: nil)
-            } else {
+                
+            case .playing:
                 self.performSegue(withIdentifier: "showVotes", sender: roomChild)
+        
+            case .finished:
+                print("Film has finished!")
+                break
+                
             }
             
 

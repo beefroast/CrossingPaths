@@ -20,6 +20,7 @@ class ChooseStartingCharacterViewController: UIViewController, UITableViewDelega
     
     class CharacterData {
         
+        
         let name: String
         let image: UIImage
         
