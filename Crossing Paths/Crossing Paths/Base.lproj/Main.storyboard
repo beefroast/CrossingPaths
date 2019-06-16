@@ -10,15 +10,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Crossing Paths Navigation Controller-->
         <scene sceneID="XH2-H6-MnR">
             <objects>
-                <navigationController navigationBarHidden="YES" id="jkA-bo-kNX" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="jkA-bo-kNX" customClass="CrossingPathsNavigationController" customModule="Crossing_Paths" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8NG-t7-VMT">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="hbl-6R-rFx" kind="relationship" relationship="rootViewController" id="OAL-hx-gl3"/>
+                        <segue destination="hbl-6R-rFx" kind="relationship" relationship="rootViewController" id="nO6-Tl-Uil"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xuv-Lf-Wju" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -80,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="-641" y="21"/>
         </scene>
-        <!--View Controller-->
+        <!--Vote Left Right View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Crossing_Paths" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="VoteLeftRightViewController" customModule="Crossing_Paths" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -124,7 +124,7 @@
         <!--Choose Starting Character View Controller-->
         <scene sceneID="LJ7-GM-AKd">
             <objects>
-                <viewController id="s2u-vd-lYl" customClass="ChooseStartingCharacterViewController" customModule="Crossing_Paths" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pickCharacter" id="s2u-vd-lYl" customClass="ChooseStartingCharacterViewController" customModule="Crossing_Paths" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c5c-mR-NqW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,6 +189,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LRk-R2-PvP"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ekV-kG-CAt"/>
                     <connections>
                         <outlet property="tableView" destination="JPx-K2-spr" id="Zro-aO-XVi"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="showVotes" id="TtS-l9-HSt"/>
@@ -203,6 +204,6 @@
         <image name="cat" width="170.33332824707031" height="172"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sar-EO-Dy7"/>
+        <segue reference="TtS-l9-HSt"/>
     </inferredMetricsTieBreakers>
 </document>

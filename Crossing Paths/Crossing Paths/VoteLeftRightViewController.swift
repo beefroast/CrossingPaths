@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class ViewController: UIViewController {
+class VoteLeftRightViewController: UIViewController {
 
     var votesRef: DatabaseReference?
     

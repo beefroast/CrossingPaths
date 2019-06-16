@@ -9,13 +9,20 @@
 import UIKit
 import FirebaseDatabase
 
+
+protocol EnterRoomNameViewControllerDelegate: AnyObject {
+    
+    func enterRoomName(vc: EnterRoomNameViewController, enteredRoomName: String)
+    
+}
+
+
 class EnterRoomNameViewController: UIViewController {
 
+    weak var delegate: EnterRoomNameViewControllerDelegate? = nil
+    
     @IBOutlet weak var roomNameTextField: UITextField!
-    
-    
     @IBOutlet weak var roomNameButton: UIButton!
-    
     
     @IBAction func onButtonPressed(_ sender: Any) {
         
@@ -23,58 +30,7 @@ class EnterRoomNameViewController: UIViewController {
             return
         }
         
-        let ref: DatabaseReference = Database.database().reference()
-        
-        let roomChild = ref.child(input)
-        
-        roomChild.observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            // Code with the data for the room in here
-            
-            
-            guard let status = (snapshot.childSnapshot(forPath: "status").value as? String).flatMap({ RoomStatus(rawValue: $0) }) else {
-                return
-            }
-            
-            
-            switch status {
-            case .waitingToStart:
-                break
-                
-            case .pickingCharacter:
-                self.performSegue(withIdentifier: "pickCharacter", sender: nil)
-                
-            case .playing:
-                self.performSegue(withIdentifier: "showVotes", sender: roomChild)
-        
-            case .finished:
-                print("Film has finished!")
-                break
-                
-            }
-            
-
-        }) { (error) in
-            // Code called/run if it didn't work and we got an error.
-            
-            print(error)
-            
-        }
-        
-        
+        self.delegate?.enterRoomName(vc: self, enteredRoomName: input)
     }
-    
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? ViewController {
-            vc.votesRef = sender as? DatabaseReference
-        }
-    }
-    
-    
-
-    
-
 
 }

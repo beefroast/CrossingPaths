@@ -15,29 +15,20 @@ class ChooseStartingCharacterTableViewCell: UITableViewCell {
     
 }
 
+
+protocol ChooseStartingCharacterViewControllerDelegate: AnyObject {
+    
+    func chooseStartingCharacter(vc: ChooseStartingCharacterViewController, selectedCharacter: CharacterData)
+}
+
+
 class ChooseStartingCharacterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    weak var delegate: ChooseStartingCharacterViewControllerDelegate?
     
-    class CharacterData {
-        
-        
-        let name: String
-        let image: UIImage
-        
-        init(name: String, image: UIImage) {
-            self.name = name
-            self.image = image
-        }
-    }
-    
-
     @IBOutlet weak var tableView: UITableView!
     
-    let characters: [CharacterData] = [
-        CharacterData(name: "Jeff", image: UIImage(named: "cat")!),
-        CharacterData(name: "Kerber", image: UIImage(named: "bun")!)
-    ]
-    
+    let characters: [CharacterData] = CharacterData.orderedCharacters
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,10 +69,7 @@ class ChooseStartingCharacterViewController: UIViewController, UITableViewDelega
         
         let characterData = characters[indexPath.row]
 
-        
-        print("You selected \(characterData.name)")
-        
-        self.performSegue(withIdentifier: "showVotes", sender: nil)
+        self.delegate?.chooseStartingCharacter(vc: self, selectedCharacter: characterData)
         
     }
     
