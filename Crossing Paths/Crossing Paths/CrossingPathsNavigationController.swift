@@ -37,40 +37,60 @@ class CrossingPathsNavigationController: UINavigationController, ChooseStartingC
         let roomChild = ref.child(enteredRoomName)
         self.roomReference = roomChild
         
-        roomChild.observeSingleEvent(of: .value, with: { (snapshot) in
+        var handle: UInt = 0
         
-            // Code with the data for the room in here
-        
-            guard let status = (snapshot.childSnapshot(forPath: "status").value as? String).flatMap({ RoomStatus(rawValue: $0) }) else {
+        handle = roomChild.child("status").observe(.value, with: { (snapshot) in
+
+            guard let status = (snapshot.value as? String).flatMap({ RoomStatus(rawValue: $0) }) else {
+                
+                // We want to stop listening if it's null
+                ref.removeObserver(withHandle: handle)
                 return
+                
             }
-        
-        
+            
             switch status {
             case .waitingToStart:
                 break
-        
+                
             case .pickingCharacter:
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "pickCharacter") as! ChooseStartingCharacterViewController
                 vc.delegate = self
-                self.pushViewController(vc, animated: true)
-        
+                self.setViewControllers([vc], animated: true)
+                
             case .playing:
                 self.performSegue(withIdentifier: "showVotes", sender: roomChild)
-        
+                
             case .finished:
                 print("Film has finished!")
                 break
-        
+                
             }
-        
-        
+            
         }) { (error) in
-            // Code called/run if it didn't work and we got an error.
-        
-            print(error)
-        
+            print("error = \(error)")
         }
+        
+        
+        
+//        roomChild.observeSingleEvent(of: .value, with: { (snapshot) in
+//
+//            // Code with the data for the room in here
+//
+//            guard let status = (snapshot.childSnapshot(forPath: "status").value as? String).flatMap({ RoomStatus(rawValue: $0) }) else {
+//                return
+//            }
+//
+//
+//
+//
+//
+//        }) { (error) in
+//            // Code called/run if it didn't work and we got an error.
+//
+//            print(error)
+//
+//        }
         
     }
     
