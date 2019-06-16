@@ -33,8 +33,6 @@
   <body>
       
       <div id="main">
-            <p id="left_votes">1</p>
-            <p id="right_votes">2</p>
       </div>
       
 
@@ -54,6 +52,10 @@
             return result;
         }
         
+        function startFilm(parameter) {
+            var roomName = parameter.getAttribute('room');
+            firebase.database().ref(roomName).child('status').set('playing');
+        }
         
       document.addEventListener('DOMContentLoaded', function() {
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
@@ -66,10 +68,7 @@
         //
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-          
-          
           var roomName = findGetParameter("room");
-          console.log(roomName);
           
           if (roomName === null) {
               
@@ -86,28 +85,70 @@
               
               // We now connect to the room they want
               
-                firebase.database().ref(roomName + '/leftRightVotes').on('value', snapshot => {
+              document.getElementById('main').innerHTML = "<p>Entering room</p>";
               
-              // Count up the votes...
+              firebase.database().ref(roomName).on('value', snapshot => {
               
-              var leftVotes = 0;
-              var rightVotes = 0;
-              
-              snapshot.forEach(function(child) {
+                    console.log('We got into the room ' + roomName);
                   
-                  if (child.val() === "left") {
-                      leftVotes = leftVotes+1;
+                    var status = snapshot.child('status').val();
                   
-                  } else if (child.val() === "right") {
-                      rightVotes = rightVotes+1;
-                  }
+                    console.log('Status is ' + status);
                   
-              });
+                    if (status === null) {
+                  
+                        // The room doesn't exist currently, so let's make a room, and put the
+                        // default data into it...
+                        
+                        firebase.database().ref(roomName).set({
+                            'status': 'waiting'
+                        });
+                        
+                    } else if (status === 'waiting') {
+                        
+                        // We're waiting for users to join before we begin the film, show a button
+                        // that lets the operator start the film...
+                        
+                        document.getElementById('main').innerHTML = '<form onsubmit="return false">' +
+                            '<input type="submit" onClick="startFilm(this)" room="'+roomName+'" >' +
+                            '</form> ';
+                        
+                    } else if (status === 'picking') {
+                        
+                        // The viewers are voting for a character, so we show all the characters and which
+                        // ones they've voted for...
+                        
+                        
+                        
+
+                    } else if (status === "playing") {
+                        
+                        // Count up the votes...
               
-              // Display the votes to the operator
-              
-              document.getElementById('left_votes').innerHTML = "Left: " + leftVotes;
-              document.getElementById('right_votes').innerHTML = "Right: " + rightVotes;
+                        var leftVotes = 0;
+                        var rightVotes = 0;
+                        
+                        snapshot.child('leftRightVotes').forEach(function(child) {
+                            
+                            if (child.val() === "left") {
+                                leftVotes = leftVotes+1;
+                            
+                            } else if (child.val() === "right") {
+                                rightVotes = rightVotes+1;
+                            }
+                            
+                        });
+                        
+                        // Display the votes to the operator
+                        
+                        document.getElementById('main').innerHTML = 
+                            '<p id="left_votes">Left: '+leftVotes+'</p>' +
+                            '<p id="right_votes">Right: '+rightVotes+'</p>'
+
+                    }
+                  
+                    
+
               
               
           });

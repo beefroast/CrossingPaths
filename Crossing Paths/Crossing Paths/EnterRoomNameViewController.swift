@@ -31,16 +31,6 @@ class EnterRoomNameViewController: UIViewController {
             
             // Code with the data for the room in here
             
-            let allowsUsersToVoteOnFirstCharacter = "allowsUsersToVoteOnFirstCharacter"
-            
-            guard snapshot.hasChild(allowsUsersToVoteOnFirstCharacter) else {
-                // TODO: Tell the user the room doesn't exist and to try again
-                return
-            }
-            
-            guard let allowsVoteOnInitialCharacter = snapshot.childSnapshot(forPath: allowsUsersToVoteOnFirstCharacter).value as? Bool else {
-                return
-            }
             
             guard let status = (snapshot.childSnapshot(forPath: "status").value as? String).flatMap({ RoomStatus(rawValue: $0) }) else {
                 return
