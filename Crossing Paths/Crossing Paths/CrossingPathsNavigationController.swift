@@ -12,8 +12,6 @@ import FirebaseAuth
 
 class CrossingPathsNavigationController: UINavigationController, ChooseStartingCharacterViewControllerDelegate, EnterRoomNameViewControllerDelegate {
 
-    
-
     var roomReference: DatabaseReference?
 
     var userId: String? {
