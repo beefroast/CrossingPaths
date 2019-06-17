@@ -32,5 +32,10 @@ class EnterRoomNameViewController: UIViewController {
         
         self.delegate?.enterRoomName(vc: self, enteredRoomName: input)
     }
+    
+    func displayError(text: String) {
+        // TODO: Display the error here
+        print(text)
+    }
 
 }

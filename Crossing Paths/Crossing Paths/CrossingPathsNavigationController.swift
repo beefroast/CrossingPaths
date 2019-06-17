@@ -45,13 +45,15 @@ class CrossingPathsNavigationController: UINavigationController, ChooseStartingC
                 
                 // We want to stop listening if it's null
                 ref.removeObserver(withHandle: handle)
+                vc.displayError(text: "No room exists with that name")
                 return
                 
             }
             
             switch status {
             case .waitingToStart:
-                break
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "waiting")
+                self.setViewControllers([vc!], animated: true)
                 
             case .pickingCharacter:
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "pickCharacter") as! ChooseStartingCharacterViewController
@@ -59,10 +61,12 @@ class CrossingPathsNavigationController: UINavigationController, ChooseStartingC
                 self.setViewControllers([vc], animated: true)
                 
             case .playing:
-                self.performSegue(withIdentifier: "showVotes", sender: roomChild)
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "vote") as! VoteLeftRightViewController
+                self.setViewControllers([vc], animated: true)
                 
             case .finished:
-                print("Film has finished!")
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "thanks")
+                self.setViewControllers([vc!], animated: true)
                 break
                 
             }

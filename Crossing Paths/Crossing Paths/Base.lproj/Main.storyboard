@@ -28,7 +28,7 @@
         <!--Enter Room Name View Controller-->
         <scene sceneID="ny7-w5-guQ">
             <objects>
-                <viewController id="hbl-6R-rFx" customClass="EnterRoomNameViewController" customModule="Crossing_Paths" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="enterRoom" id="hbl-6R-rFx" customClass="EnterRoomNameViewController" customModule="Crossing_Paths" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pec-Ze-qgL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,10 +80,37 @@
             </objects>
             <point key="canvasLocation" x="-641" y="21"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Mia-zp-4wf">
+            <objects>
+                <viewController storyboardIdentifier="waiting" id="bbf-DG-e85" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DfV-Lb-iyV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for film to begin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbs-C8-fgb">
+                                <rect key="frame" x="116" y="437.5" width="182" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zbs-C8-fgb" firstAttribute="centerY" secondItem="DfV-Lb-iyV" secondAttribute="centerY" id="gjz-MY-wIl"/>
+                            <constraint firstItem="zbs-C8-fgb" firstAttribute="centerX" secondItem="DfV-Lb-iyV" secondAttribute="centerX" id="rfI-LA-FwA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bgP-su-9nC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7fh-n6-vCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="107" y="-303"/>
+        </scene>
         <!--Vote Left Right View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="VoteLeftRightViewController" customModule="Crossing_Paths" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vote" id="BYZ-38-t0r" customClass="VoteLeftRightViewController" customModule="Crossing_Paths" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,6 +147,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="894" y="21"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7aG-EG-9m6">
+            <objects>
+                <viewController storyboardIdentifier="thanks" id="GfG-3m-jsZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zdm-6B-DnP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for watching" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcx-3D-QLb">
+                                <rect key="frame" x="129.5" y="437.5" width="155" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fcx-3D-QLb" firstAttribute="centerY" secondItem="zdm-6B-DnP" secondAttribute="centerY" id="5yn-zX-s00"/>
+                            <constraint firstItem="fcx-3D-QLb" firstAttribute="centerX" secondItem="zdm-6B-DnP" secondAttribute="centerX" id="ybn-Lr-b6O"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YnM-Ow-qIW"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2lT-UW-YlD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1730" y="20"/>
         </scene>
         <!--Choose Starting Character View Controller-->
         <scene sceneID="LJ7-GM-AKd">
@@ -204,6 +258,6 @@
         <image name="cat" width="170.33332824707031" height="172"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TtS-l9-HSt"/>
+        <segue reference="sar-EO-Dy7"/>
     </inferredMetricsTieBreakers>
 </document>
