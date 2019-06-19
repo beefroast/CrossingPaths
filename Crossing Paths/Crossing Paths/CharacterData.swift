@@ -25,18 +25,18 @@ class CharacterData {
     static var orderedCharacters: [CharacterData] {
         get {
             return [
-                CharacterData(name: "Dunc", image: UIImage(named: "cat")!),
-                CharacterData(name: "Zoe", image: UIImage(named: "cat")!),
-                CharacterData(name: "Ryan", image: UIImage(named: "cat")!),
-                CharacterData(name: "Ness", image: UIImage(named: "cat")!),
-                CharacterData(name: "Poe", image: UIImage(named: "cat")!),
-                CharacterData(name: "Ed", image: UIImage(named: "cat")!),
-                CharacterData(name: "Mandy", image: UIImage(named: "cat")!),
-                CharacterData(name: "Ruby", image: UIImage(named: "cat")!),
-                CharacterData(name: "Bella", image: UIImage(named: "cat")!),
-                CharacterData(name: "Lena", image: UIImage(named: "cat")!),
-                CharacterData(name: "Ricky", image: UIImage(named: "cat")!),
-                CharacterData(name: "Kelsie", image: UIImage(named: "cat")!),
+                CharacterData(name: "Dunc", image: UIImage(named: "CharacterStills_A")!),
+                CharacterData(name: "Zoe", image: UIImage(named: "CharacterStills_B")!),
+                CharacterData(name: "Ryan", image: UIImage(named: "CharacterStills_C")!),
+                CharacterData(name: "Ness", image: UIImage(named: "CharacterStills_D")!),
+                CharacterData(name: "Poe", image: UIImage(named: "CharacterStills_E")!),
+                CharacterData(name: "Ed", image: UIImage(named: "CharacterStills_F")!),
+                CharacterData(name: "Mandy", image: UIImage(named: "CharacterStills_G")!),
+                CharacterData(name: "Ruby", image: UIImage(named: "CharacterStills_H")!),
+                CharacterData(name: "Bella", image: UIImage(named: "CharacterStills_I")!),
+                CharacterData(name: "Lena", image: UIImage(named: "CharacterStills_J")!),
+                CharacterData(name: "Ricky", image: UIImage(named: "CharacterStills_K")!),
+                CharacterData(name: "Kelsie", image: UIImage(named: "CharacterStills_L")!),
             ]
         }
     }
