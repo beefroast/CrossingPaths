@@ -60,6 +60,12 @@ class ChooseStartingCharacterViewController: UIViewController, UITableViewDelega
         cell.characterNameLabel.text = characterData.name
         cell.characterImageView.image = characterData.image
         
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = UIColor.cpMauve
+        } else {
+            cell.backgroundColor = UIColor.cpYellow
+        }
+        
         cell.layoutMargins = UIEdgeInsets.zero
 
         return cell

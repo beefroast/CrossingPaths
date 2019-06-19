@@ -30,6 +30,11 @@ class EnterRoomNameViewController: UIViewController {
             return
         }
         
+        guard input.count > 0 else {
+            self.displayError(text: "Please enter a room name")
+            return
+        }
+        
         self.delegate?.enterRoomName(vc: self, enteredRoomName: input)
     }
     

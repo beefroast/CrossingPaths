@@ -22,6 +22,8 @@
 		64A097B022AE62B200000DB6 /* Crossing_PathsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A097AF22AE62B200000DB6 /* Crossing_PathsTests.swift */; };
 		64A097BB22AE62B200000DB6 /* Crossing_PathsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A097BA22AE62B200000DB6 /* Crossing_PathsUITests.swift */; };
 		64A097C922AE69B100000DB6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64A097C822AE69B100000DB6 /* GoogleService-Info.plist */; };
+		64C9FED922BA3D2600B826E8 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C9FED822BA3D2600B826E8 /* UIColorExtensions.swift */; };
+		64C9FEDB22BA454C00B826E8 /* RabbitOnTheMoon-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64C9FEDA22BA454B00B826E8 /* RabbitOnTheMoon-Italic.ttf */; };
 		94589FD5848E6428E4C9451B /* Pods_Crossing_Paths.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B122096472DC6670A20D51ED /* Pods_Crossing_Paths.framework */; };
 		DDE9AF0481A499DBF58947EB /* Pods_Crossing_PathsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB45C60485EC8CA22F2DEEC /* Pods_Crossing_PathsUITests.framework */; };
 /* End PBXBuildFile section */
@@ -67,6 +69,8 @@
 		64A097BA22AE62B200000DB6 /* Crossing_PathsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crossing_PathsUITests.swift; sourceTree = "<group>"; };
 		64A097BC22AE62B200000DB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64A097C822AE69B100000DB6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		64C9FED822BA3D2600B826E8 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		64C9FEDA22BA454B00B826E8 /* RabbitOnTheMoon-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RabbitOnTheMoon-Italic.ttf"; sourceTree = "<group>"; };
 		765F5A49A02CC012AAABD073 /* Pods-Crossing PathsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crossing PathsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crossing PathsTests/Pods-Crossing PathsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		82E9EC4F907CAF175FBA22B9 /* Pods-Crossing Paths.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crossing Paths.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crossing Paths/Pods-Crossing Paths.release.xcconfig"; sourceTree = "<group>"; };
 		99C7BEB4E4AEC2E7F0804A6B /* Pods-Crossing Paths.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crossing Paths.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crossing Paths/Pods-Crossing Paths.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 		64A0979622AE62AD00000DB6 /* Crossing Paths */ = {
 			isa = PBXGroup;
 			children = (
+				64C9FEDA22BA454B00B826E8 /* RabbitOnTheMoon-Italic.ttf */,
 				64A097C822AE69B100000DB6 /* GoogleService-Info.plist */,
 				64A0979722AE62AD00000DB6 /* AppDelegate.swift */,
 				64A0979B22AE62AD00000DB6 /* Main.storyboard */,
@@ -154,6 +159,7 @@
 				6458EA5422B4DC5D005C2053 /* RoomStatus.swift */,
 				6458EA5622B61121005C2053 /* CharacterData.swift */,
 				6458EA5822B61661005C2053 /* CrossingPathsNavigationController.swift */,
+				64C9FED822BA3D2600B826E8 /* UIColorExtensions.swift */,
 			);
 			path = "Crossing Paths";
 			sourceTree = "<group>";
@@ -297,6 +303,7 @@
 				64A097C922AE69B100000DB6 /* GoogleService-Info.plist in Resources */,
 				64A097A522AE62B200000DB6 /* LaunchScreen.storyboard in Resources */,
 				64A097A222AE62B200000DB6 /* Assets.xcassets in Resources */,
+				64C9FEDB22BA454C00B826E8 /* RabbitOnTheMoon-Italic.ttf in Resources */,
 				64A0979D22AE62AD00000DB6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64C9FED922BA3D2600B826E8 /* UIColorExtensions.swift in Sources */,
 				6458EA5722B61121005C2053 /* CharacterData.swift in Sources */,
 				64A097A022AE62AD00000DB6 /* Crossing_Paths.xcdatamodeld in Sources */,
 				642DA3F422B4B698008717E5 /* EnterRoomNameViewController.swift in Sources */,
