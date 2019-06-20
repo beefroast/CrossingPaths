@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class CrossingPathsNavigationController: UINavigationController, ChooseStartingCharacterViewControllerDelegate, EnterRoomNameViewControllerDelegate {
+class CrossingPathsNavigationController: UINavigationController, ChooseStartingCharacterViewControllerDelegate, EnterRoomNameViewControllerDelegate, ThanksViewControllerDelegate, VoteViewControllerDelegate {
 
     var roomReference: DatabaseReference?
 
@@ -21,10 +21,13 @@ class CrossingPathsNavigationController: UINavigationController, ChooseStartingC
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
         (self.viewControllers.first as? EnterRoomNameViewController)?.delegate = self
-        
+    }
+    
+    func goToEnterRoomView() {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "enterRoom") as? EnterRoomNameViewController else { return }
+        vc.delegate = self
+        self.setViewControllers([vc], animated: true)
     }
     
     
@@ -62,39 +65,20 @@ class CrossingPathsNavigationController: UINavigationController, ChooseStartingC
                 
             case .playing:
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "vote") as! VoteLeftRightViewController
+                vc.delegate = self
                 self.setViewControllers([vc], animated: true)
                 
             case .finished:
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "thanks")
-                self.setViewControllers([vc!], animated: true)
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "thanks") as! ThanksViewController
+                vc.delegate = self
+                self.setViewControllers([vc], animated: true)
                 break
                 
             }
             
         }) { (error) in
-            print("error = \(error)")
+            self.goToEnterRoomView()
         }
-        
-        
-        
-//        roomChild.observeSingleEvent(of: .value, with: { (snapshot) in
-//
-//            // Code with the data for the room in here
-//
-//            guard let status = (snapshot.childSnapshot(forPath: "status").value as? String).flatMap({ RoomStatus(rawValue: $0) }) else {
-//                return
-//            }
-//
-//
-//
-//
-//
-//        }) { (error) in
-//            // Code called/run if it didn't work and we got an error.
-//
-//            print(error)
-//
-//        }
         
     }
     
@@ -113,7 +97,24 @@ class CrossingPathsNavigationController: UINavigationController, ChooseStartingC
 
     }
     
-
+    // MARK: - ThanksViewControllerDelegate
+    
+    func thanks(vc: ThanksViewController, pressedThanks: Any?) {
+        self.goToEnterRoomView()
+    }
+    
+    // MARK: - VoteViewControllerDelegate
+    
+    func vote(vc: UIViewController, voted: VoteStatus) {
+        guard let id = userId else { return }
+        
+        switch voted {
+        case .left: roomReference?.child("leftRightVotes").child(id).setValue("left")
+        case .right: roomReference?.child("leftRightVotes").child(id).setValue("right")
+        case .none: roomReference?.child("leftRightVotes").child(id).setValue("none")
+        }
+    }
+    
 
 }
 

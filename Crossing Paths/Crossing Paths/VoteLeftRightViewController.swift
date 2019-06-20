@@ -10,32 +10,27 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
+
+enum VoteStatus {
+    case left
+    case right
+    case none
+}
+
+protocol VoteViewControllerDelegate: AnyObject {
+    func vote(vc: UIViewController, voted: VoteStatus)
+}
+
 class VoteLeftRightViewController: UIViewController {
 
-    var votesRef: DatabaseReference?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    
-    var userId: String? {
-        get { return Auth.auth().currentUser?.uid }
-    }
-    
+    weak var delegate: VoteViewControllerDelegate? = nil
     
     @IBAction func onLeftButton(_ sender: Any) {
-        
-        guard let id = userId else { return }
-        
-        votesRef?.child("leftRightVotes").child(id).setValue("left")
+        self.delegate?.vote(vc: self, voted: VoteStatus.left)
     }
     
     @IBAction func onRightButton(_ sender: Any) {
-        
-        guard let id = userId else { return }
-        
-        votesRef?.child("leftRightVotes").child(id).setValue("right")
+        self.delegate?.vote(vc: self, voted: VoteStatus.right)
     }
     
 }

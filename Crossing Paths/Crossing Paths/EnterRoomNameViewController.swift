@@ -21,6 +21,7 @@ class EnterRoomNameViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var roomNameTextField: UITextField!
     @IBOutlet weak var roomNameButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,11 +41,15 @@ class EnterRoomNameViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
+        self.activityIndicator.startAnimating()
+        self.roomNameButton.isHidden = true
         self.delegate?.enterRoomName(vc: self, enteredRoomName: input)
     }
     
     func displayError(text: String) {
         // TODO: Display the error here
+        self.activityIndicator.stopAnimating()
+        self.roomNameButton.isHidden = false
         let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: text])
         (roomNameTextField as? MFTextField)?.setError(error, animated: true)
     }
