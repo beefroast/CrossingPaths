@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Enter Room Code to Begin!"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.24000001"
+            android:id="@+id/textView" android:layout_marginRight="80dp" android:layout_marginLeft="80dp"/>
+    <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Room Code"
+            android:ems="10"
+            android:id="@+id/editText"
+            android:layout_marginEnd="50dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="50dp"
+            android:layout_marginStart="50dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="50dp"
+            tools:layout_editor_absoluteY="210dp"/>
+    <Button
+            android:text="Submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button"
+            app:layout_constraintTop_toBottomOf="@+id/editText" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintVertical_bias="0.226"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:background="#0F0F0F">
+
+<com.javatechig.droid.ui.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/font_sample_text"
+        android:textSize="18dp"
+        android:textColor="#AAD4DE" />
+
+<com.javatechig.droid.ui.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/font_sample_text"
+        android:textColor="#FFDE46"
+        android:textSize="24dp"/>
+
+<com.javatechig.droid.ui.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/font_sample_text"
+        android:textSize="30dp"
+        android:textColor="#7FBA00"/>
+</LinearLayout>
