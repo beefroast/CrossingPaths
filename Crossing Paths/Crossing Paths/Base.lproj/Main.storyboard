@@ -9,11 +9,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="RabbitOnTheMoon-Italic.ttf">
-            <string>RabbitOnTheMoon-Italic</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Crossing Paths Navigation Controller-->
         <scene sceneID="XH2-H6-MnR">
@@ -38,18 +33,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Room name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cic-yR-cfX">
-                                <rect key="frame" x="20" y="209" width="374" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Room code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cic-yR-cfX" customClass="MFTextField">
+                                <rect key="frame" x="20" y="204.5" width="374" height="39"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EC3-3Q-kMB">
-                                <rect key="frame" x="20" y="299" width="374" height="80"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                <fontDescription key="fontDescription" name="RabbitOnTheMoon-Italic" family="Rabbit On The Moon" pointSize="49"/>
+                                <rect key="frame" x="20" y="303.5" width="374" height="60"/>
+                                <color key="backgroundColor" red="0.7803921568627451" green="0.80000000000000004" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="JDO-Sz-mqq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="Button">
-                                    <color key="titleShadowColor" red="0.56093353426395942" green="0.13677010957175992" blue="0.23217671702367423" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -60,8 +60,14 @@
                                     <action selector="onButtonPressed:" destination="hbl-6R-rFx" eventType="touchUpInside" id="mr5-YT-btf"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the room code to begin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBe-NM-f90">
+                                <rect key="frame" x="20" y="120.5" width="374" height="24"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.95294117647058818" green="0.77647058823529413" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.9137254901960784" green="0.92941176470588238" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" red="0.4506067576142132" green="0.10769134737850262" blue="0.18229240982131015" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="5iJ-nW-JGW" firstAttribute="trailing" secondItem="Cic-yR-cfX" secondAttribute="trailing" constant="20" id="6Wd-FT-mqW"/>
@@ -69,6 +75,9 @@
                             <constraint firstItem="5iJ-nW-JGW" firstAttribute="trailing" secondItem="EC3-3Q-kMB" secondAttribute="trailing" constant="20" id="EH7-9H-PKk"/>
                             <constraint firstItem="EC3-3Q-kMB" firstAttribute="leading" secondItem="5iJ-nW-JGW" secondAttribute="leading" constant="20" id="H4k-sp-r3a"/>
                             <constraint firstItem="Cic-yR-cfX" firstAttribute="leading" secondItem="5iJ-nW-JGW" secondAttribute="leading" constant="20" id="IaJ-SM-u1e"/>
+                            <constraint firstItem="Cic-yR-cfX" firstAttribute="top" secondItem="DBe-NM-f90" secondAttribute="bottom" constant="60" id="PLR-aD-Pch"/>
+                            <constraint firstItem="DBe-NM-f90" firstAttribute="leading" secondItem="5iJ-nW-JGW" secondAttribute="leading" constant="20" id="XhW-bU-gBj"/>
+                            <constraint firstItem="5iJ-nW-JGW" firstAttribute="trailing" secondItem="DBe-NM-f90" secondAttribute="trailing" constant="20" id="haw-QZ-4Jp"/>
                             <constraint firstItem="Cic-yR-cfX" firstAttribute="centerY" secondItem="pec-Ze-qgL" secondAttribute="centerY" multiplier="0.5" id="s4y-iG-6B3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5iJ-nW-JGW"/>
@@ -100,7 +109,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.95294117649999999" green="0.77647058820000003" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="zbs-C8-fgb" firstAttribute="centerY" secondItem="DfV-Lb-iyV" secondAttribute="centerY" id="gjz-MY-wIl"/>
                             <constraint firstItem="zbs-C8-fgb" firstAttribute="centerX" secondItem="DfV-Lb-iyV" secondAttribute="centerX" id="rfI-LA-FwA"/>
@@ -120,24 +129,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZj-j6-bz2">
-                                <rect key="frame" x="0.0" y="44" width="182" height="818"/>
-                                <state key="normal" title="Left"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZj-j6-bz2">
+                                <rect key="frame" x="0.0" y="44" width="207" height="818"/>
+                                <state key="normal" image="Left"/>
                                 <connections>
                                     <action selector="onLeftButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yau-Me-Pg3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axb-cm-E0d">
-                                <rect key="frame" x="232" y="44" width="182" height="818"/>
-                                <state key="normal" title="Right"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axb-cm-E0d">
+                                <rect key="frame" x="207" y="44" width="207" height="818"/>
+                                <state key="normal" image="Right"/>
                                 <connections>
                                     <action selector="onRightButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nLe-8S-Nms"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Axb-cm-E0d" firstAttribute="leading" secondItem="LZj-j6-bz2" secondAttribute="trailing" constant="50" id="06L-LT-G2q"/>
+                            <constraint firstItem="Axb-cm-E0d" firstAttribute="leading" secondItem="LZj-j6-bz2" secondAttribute="trailing" id="06L-LT-G2q"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Axb-cm-E0d" secondAttribute="trailing" id="10H-GA-VEH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LZj-j6-bz2" secondAttribute="bottom" id="B9h-J4-QRx"/>
                             <constraint firstItem="LZj-j6-bz2" firstAttribute="width" secondItem="Axb-cm-E0d" secondAttribute="width" id="FwU-rD-wKj"/>
@@ -161,17 +170,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for watching" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcx-3D-QLb">
-                                <rect key="frame" x="129.5" y="437.5" width="155" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for watching!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEv-kR-WDs">
+                                <rect key="frame" x="20" y="84" width="374" height="23.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.69019607843137254" green="0.94117647058823528" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="fcx-3D-QLb" firstAttribute="centerY" secondItem="zdm-6B-DnP" secondAttribute="centerY" id="5yn-zX-s00"/>
-                            <constraint firstItem="fcx-3D-QLb" firstAttribute="centerX" secondItem="zdm-6B-DnP" secondAttribute="centerX" id="ybn-Lr-b6O"/>
+                            <constraint firstItem="dEv-kR-WDs" firstAttribute="leading" secondItem="YnM-Ow-qIW" secondAttribute="leading" constant="20" id="LuO-MM-WHk"/>
+                            <constraint firstItem="YnM-Ow-qIW" firstAttribute="trailing" secondItem="dEv-kR-WDs" secondAttribute="trailing" constant="20" id="S3o-TZ-bm1"/>
+                            <constraint firstItem="dEv-kR-WDs" firstAttribute="top" secondItem="YnM-Ow-qIW" secondAttribute="top" constant="40" id="XqG-gf-ck1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YnM-Ow-qIW"/>
                     </view>
@@ -190,7 +200,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JPx-K2-spr">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="characterCell" rowHeight="173" id="ZZd-As-0SB" customClass="ChooseStartingCharacterTableViewCell" customModule="Crossing_Paths" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="173"/>
@@ -239,7 +249,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.92549019607843142" green="0.59215686274509804" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="JPx-K2-spr" firstAttribute="leading" secondItem="c5c-mR-NqW" secondAttribute="leading" id="7oL-sP-B6b"/>
                             <constraint firstItem="JPx-K2-spr" firstAttribute="top" secondItem="c5c-mR-NqW" secondAttribute="top" id="Bm7-6D-FTA"/>
@@ -260,6 +270,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Left" width="83.333335876464844" height="68.333335876464844"/>
+        <image name="Right" width="83.333335876464844" height="68.333335876464844"/>
         <image name="cat" width="170.33332824707031" height="172"/>
     </resources>
     <inferredMetricsTieBreakers>

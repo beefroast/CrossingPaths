@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE18A6D56574077ECBD63D56F71C272D"
+               BlueprintIdentifier = "683E6E8CCEA547685AC36B6FA98EEB63"
                BuildableName = "Pods_Crossing_Paths.framework"
                BlueprintName = "Pods-Crossing Paths"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CE18A6D56574077ECBD63D56F71C272D"
+            BlueprintIdentifier = "683E6E8CCEA547685AC36B6FA98EEB63"
             BuildableName = "Pods_Crossing_Paths.framework"
             BlueprintName = "Pods-Crossing Paths"
             ReferencedContainer = "container:Pods.xcodeproj">

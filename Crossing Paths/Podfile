@@ -1,4 +1,5 @@
 # Uncomment the next line to define a global platform for your project
+
 # platform :ios, '9.0'
 
 target 'Crossing Paths' do
@@ -19,5 +20,6 @@ target 'Crossing Paths' do
 pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
+pod 'MaterialTextField'
 
 end
