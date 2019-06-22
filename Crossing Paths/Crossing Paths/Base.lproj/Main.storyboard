@@ -169,7 +169,7 @@
         <!--Vote Left Right View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="vote" id="BYZ-38-t0r" customClass="VoteLeftRightViewController" customModule="Crossing_Paths" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="_vote" id="BYZ-38-t0r" customClass="VoteLeftRightViewController" customModule="Crossing_Paths" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -210,17 +210,56 @@
         <!--Tilt Vote View Controller-->
         <scene sceneID="WQw-m4-Xj1">
             <objects>
-                <viewController storyboardIdentifier="_vote" id="rJF-Y7-2Y0" customClass="TiltVoteViewController" customModule="Crossing_Paths" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vote" id="rJF-Y7-2Y0" customClass="TiltVoteViewController" customModule="Crossing_Paths" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SPu-zs-pdq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Fb-YG-6nA">
+                                <rect key="frame" x="20" y="425" width="374" height="46.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please hold your phone up vertically. Once vertical, you can tilt left and right to vote!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAT-83-kjP">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="46.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="EAT-83-kjP" firstAttribute="leading" secondItem="7Fb-YG-6nA" secondAttribute="leading" id="C0e-u4-2dg"/>
+                                    <constraint firstItem="EAT-83-kjP" firstAttribute="top" secondItem="7Fb-YG-6nA" secondAttribute="top" id="OqF-pO-zk7"/>
+                                    <constraint firstAttribute="bottom" secondItem="EAT-83-kjP" secondAttribute="bottom" id="Rbp-60-P9q"/>
+                                    <constraint firstAttribute="trailing" secondItem="EAT-83-kjP" secondAttribute="trailing" id="bzd-c2-n6j"/>
+                                </constraints>
+                            </view>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Left" translatesAutoresizingMaskIntoConstraints="NO" id="VxO-ys-EtS">
+                                <rect key="frame" x="107" y="348" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="PyY-hg-Arr"/>
+                                    <constraint firstAttribute="height" constant="200" id="mNg-KL-ala"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7Fb-YG-6nA" firstAttribute="leading" secondItem="lTp-CU-tjj" secondAttribute="leading" constant="20" id="36t-Kl-NJ6"/>
+                            <constraint firstItem="VxO-ys-EtS" firstAttribute="centerY" secondItem="SPu-zs-pdq" secondAttribute="centerY" id="3of-dT-yya"/>
+                            <constraint firstItem="7Fb-YG-6nA" firstAttribute="centerY" secondItem="SPu-zs-pdq" secondAttribute="centerY" id="Kn6-Up-RFK"/>
+                            <constraint firstItem="lTp-CU-tjj" firstAttribute="trailing" secondItem="7Fb-YG-6nA" secondAttribute="trailing" constant="20" id="SaA-hZ-qhW"/>
+                            <constraint firstItem="VxO-ys-EtS" firstAttribute="centerX" secondItem="SPu-zs-pdq" secondAttribute="centerX" id="ZI7-xS-3JB"/>
+                            <constraint firstItem="7Fb-YG-6nA" firstAttribute="centerX" secondItem="SPu-zs-pdq" secondAttribute="centerX" id="hZO-oD-gvw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lTp-CU-tjj"/>
                     </view>
+                    <connections>
+                        <outlet property="imgViewLeft" destination="VxO-ys-EtS" id="VYt-ti-NUZ"/>
+                        <outlet property="viewHoldPhoneUp" destination="7Fb-YG-6nA" id="dcw-nI-ysP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cj3-8I-uwr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2314" y="1183"/>
+            <point key="canvasLocation" x="912" y="733"/>
         </scene>
         <!--Thanks View Controller-->
         <scene sceneID="7aG-EG-9m6">
@@ -406,6 +445,6 @@
         <image name="cat" width="170.33332824707031" height="172"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sar-EO-Dy7"/>
+        <segue reference="TtS-l9-HSt"/>
     </inferredMetricsTieBreakers>
 </document>

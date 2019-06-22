@@ -70,9 +70,10 @@ class CrossingPathsNavigationController: UINavigationController,
                 self.setViewControllers([vc], animated: true)
                 
             case .playing:
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "vote") as! VoteLeftRightViewController
-                vc.delegate = self
-                self.setViewControllers([vc], animated: true)
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "vote")
+                (vc as? VoteLeftRightViewController)?.delegate = self
+                (vc as? TiltVoteViewController)?.delegate = self
+                self.setViewControllers([vc!], animated: true)
                 
             case .finished:
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "thanks") as! ThanksViewController
