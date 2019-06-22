@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        UIApplication.shared.isIdleTimerDisabled = true
+
+        
         Auth.auth().signInAnonymously() { (authResult, error) in
             print(authResult)
             print(error)
