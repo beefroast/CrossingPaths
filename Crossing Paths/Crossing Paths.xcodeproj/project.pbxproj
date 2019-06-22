@@ -26,6 +26,7 @@
 		64C9FEDB22BA454C00B826E8 /* RabbitOnTheMoon-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64C9FEDA22BA454B00B826E8 /* RabbitOnTheMoon-Italic.ttf */; };
 		64C9FF1722BB956E00B826E8 /* TiltVoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C9FF1622BB956E00B826E8 /* TiltVoteViewController.swift */; };
 		64C9FF1922BB96FD00B826E8 /* ThanksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C9FF1822BB96FD00B826E8 /* ThanksViewController.swift */; };
+		64C9FF1B22BDA97F00B826E8 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C9FF1A22BDA97F00B826E8 /* SplashViewController.swift */; };
 		94589FD5848E6428E4C9451B /* Pods_Crossing_Paths.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B122096472DC6670A20D51ED /* Pods_Crossing_Paths.framework */; };
 		DDE9AF0481A499DBF58947EB /* Pods_Crossing_PathsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB45C60485EC8CA22F2DEEC /* Pods_Crossing_PathsUITests.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		64C9FEDA22BA454B00B826E8 /* RabbitOnTheMoon-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RabbitOnTheMoon-Italic.ttf"; sourceTree = "<group>"; };
 		64C9FF1622BB956E00B826E8 /* TiltVoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiltVoteViewController.swift; sourceTree = "<group>"; };
 		64C9FF1822BB96FD00B826E8 /* ThanksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksViewController.swift; sourceTree = "<group>"; };
+		64C9FF1A22BDA97F00B826E8 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		765F5A49A02CC012AAABD073 /* Pods-Crossing PathsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crossing PathsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crossing PathsTests/Pods-Crossing PathsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		82E9EC4F907CAF175FBA22B9 /* Pods-Crossing Paths.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crossing Paths.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crossing Paths/Pods-Crossing Paths.release.xcconfig"; sourceTree = "<group>"; };
 		99C7BEB4E4AEC2E7F0804A6B /* Pods-Crossing Paths.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crossing Paths.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crossing Paths/Pods-Crossing Paths.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				64A097C822AE69B100000DB6 /* GoogleService-Info.plist */,
 				64A0979722AE62AD00000DB6 /* AppDelegate.swift */,
 				64A0979B22AE62AD00000DB6 /* Main.storyboard */,
+				64C9FF1A22BDA97F00B826E8 /* SplashViewController.swift */,
 				64A097A122AE62B200000DB6 /* Assets.xcassets */,
 				64A097A322AE62B200000DB6 /* LaunchScreen.storyboard */,
 				64A097A622AE62B200000DB6 /* Info.plist */,
@@ -437,6 +440,7 @@
 				64C9FED922BA3D2600B826E8 /* UIColorExtensions.swift in Sources */,
 				6458EA5722B61121005C2053 /* CharacterData.swift in Sources */,
 				64A097A022AE62AD00000DB6 /* Crossing_Paths.xcdatamodeld in Sources */,
+				64C9FF1B22BDA97F00B826E8 /* SplashViewController.swift in Sources */,
 				642DA3F422B4B698008717E5 /* EnterRoomNameViewController.swift in Sources */,
 				6458EA5522B4DC5D005C2053 /* RoomStatus.swift in Sources */,
 				64A0979822AE62AD00000DB6 /* AppDelegate.swift in Sources */,

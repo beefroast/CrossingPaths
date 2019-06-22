@@ -10,7 +10,8 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class CrossingPathsNavigationController: UINavigationController, ChooseStartingCharacterViewControllerDelegate, EnterRoomNameViewControllerDelegate, ThanksViewControllerDelegate, VoteViewControllerDelegate {
+class CrossingPathsNavigationController: UINavigationController,
+    SplashViewControllerDelegate, ChooseStartingCharacterViewControllerDelegate, EnterRoomNameViewControllerDelegate, ThanksViewControllerDelegate, VoteViewControllerDelegate {
 
     var roomReference: DatabaseReference?
 
@@ -20,14 +21,19 @@ class CrossingPathsNavigationController: UINavigationController, ChooseStartingC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        (self.viewControllers.first as? EnterRoomNameViewController)?.delegate = self
+        (self.viewControllers.first as? SplashViewController)?.delegate = self
     }
     
     func goToEnterRoomView() {
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "enterRoom") as? EnterRoomNameViewController else { return }
         vc.delegate = self
         self.setViewControllers([vc], animated: true)
+    }
+    
+    // MARK: - SplashViewControllerDelegate
+    
+    func splash(vc: SplashViewController, timerExpired: Any?) {
+        self.goToEnterRoomView()
     }
     
     
