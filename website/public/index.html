@@ -80,8 +80,33 @@
         }
         
         function startFilm(parameter) {
+
+            // console.log(JSON.stringify(parameter));
+
             var roomName = parameter.getAttribute('room');
-            firebase.database().ref(roomName).child('status').set('playing');
+
+            var checkBox = document.getElementById("allowCharacterVotes");
+
+            if (checkBox === null) {
+              firebase.database().ref(roomName).child('status').set('playing');
+              return;
+            }
+
+            var allowVotes = checkBox.checked
+
+            if (allowVotes === true) {
+              firebase.database().ref(roomName).child('status').set('picking');
+            } else {
+              firebase.database().ref(roomName).child('status').set('playing');
+            }
+
+        }
+
+        function endFilm(parameter) {
+          
+          var roomName = parameter.getAttribute('room');
+
+          firebase.database().ref(roomName).child('status').set('finished');
         }
         
       document.addEventListener('DOMContentLoaded', function() {
@@ -132,6 +157,12 @@
                         firebase.database().ref(roomName).set({
                             'status': 'waiting'
                         });
+
+                    } else if (status === 'finished') {
+
+                        document.getElementById('main').innerHTML = 
+                            '<h2>'+roomName+'</h2>' +
+                            '<p>Film is finished, everyone in the room is now looking at credits!</p>';
                         
                     } else if (status === 'waiting') {
                         
@@ -142,7 +173,7 @@
                             '<h2>'+roomName+'</h2>' +
                             '<p>Now waiting for viewers to join the room.</p>' +
                             '<form onsubmit="return false">' +
-                            '<input type="checkbox" name="pickingCharacter" value="pickingCharacter">Allow viewers to select starting character<br>' +
+                            '<input id="allowCharacterVotes" type="checkbox" name="pickingCharacter" value="pickingCharacter">Allow viewers to select starting character<br>' +
                             '<input type="submit" onClick="startFilm(this)" value="Start Film" room="'+roomName+'" ><br>' +
                             
                             '</form>';
@@ -228,8 +259,13 @@
                         // Display the votes to the operator
                         
                         document.getElementById('main').innerHTML = 
+                            '<h2>'+ roomName +'</h2>' +
+                            '<p>Playing film</p>' +
                             '<p id="left_votes">Left: '+leftVotes+'</p>' +
-                            '<p id="right_votes">Right: '+rightVotes+'</p>'
+                            '<p id="right_votes">Right: '+rightVotes+'</p>' +
+                            '<form onsubmit="return false">' +
+                            '<input type="submit" onClick="endFilm(this)" value="Go to credits" room="'+roomName+'">' +
+                            '</form> ';
 
                     }
                   
