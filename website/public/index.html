@@ -50,6 +50,33 @@
         /*whatever width you want*/
       }
 
+      .progress {
+        width:200px;
+        height:50px;
+        border:1px solid black;
+        background: -webkit-linear-gradient(left, black 50%, white 50%);
+        background: -moz-linear-gradient(left, black 50%, white 50%);
+        background: -ms-linear-gradient(left, black 50%, white 50%);
+        background: linear-gradient(left, black 50%, white 50%);
+      }
+
+      .red {
+        width: 100%;
+        background-color: rgb(1,0,0);
+      }
+
+      .fullTable {
+        width: 100%;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      h1.lessvotes {
+        color: gray;
+      }
+
     </style>
   </head>
   <body>
@@ -213,23 +240,43 @@
                           "Kelsie"
                         ];
                         
-                        snapshot.child('characterVotes').forEach(function(child) {
+                        // Count the votes
+                        var totalVotes = 0;
 
+                        snapshot.child('characterVotes').forEach(function(child) {
                             var key = child.val();
                             var voteCount = characterVotes[key];
                             characterVotes[key] = voteCount + 1;
+                            totalVotes += 1;
                         });
 
-                        console.log(JSON.stringify(characterVotes));
+                        characterVotesAsArray = orderedKeys.map(function (key) {
+                          return {
+                            "person": key,
+                            "votes": characterVotes[key]
+                          }
+                        });
+
+                        characterVotesAsArray.sort(function (a, b) {
+                          return b.votes - a.votes;
+                        });
 
                         document.getElementById('main').innerHTML = 
                             '<h2>'+roomName+'</h2>' +
                             '<p>Collecting votes for starting character.</p>' +
                             '<div class="votes">' +
 
-                            orderedKeys.map(function (key) {
-                                return '<p>' + key + ': ' +  characterVotes[key] + '</p>';
+                            '<table class="fullTable">' +
+
+                            characterVotesAsArray.map(function (x) {
+                              return '<tr>'
+                                + '<td>' + x.person + '</td>'
+                                + '<td>' + x.votes + '</td>'
+                                + '<td><div class="red"></div></td>'
+                                + '</tr>';
                             }).join("") +
+
+                            '</table><hr>' +
 
                             '<form onsubmit="return false">' +
                             '<input type="submit" onClick="startFilm(this)" value="Start Film" room="'+roomName+'" ><br>' +
@@ -259,11 +306,15 @@
                         
                         // Display the votes to the operator
                         
+                        var leftClass = ((leftVotes <= rightVotes) ? 'class="lessvotes"' : "");
+                        var rightClass = ((rightVotes <= leftVotes) ? 'class="lessvotes"' : "");
+
                         document.getElementById('main').innerHTML = 
                             '<h2>'+ roomName +'</h2>' +
                             '<p>Playing film</p>' +
-                            '<p id="left_votes">Left: '+leftVotes+'</p>' +
-                            '<p id="right_votes">Right: '+rightVotes+'</p>' +
+                            '<table class="fullTable">' +
+                            '<tr><td><h1 '+leftClass+'>'+leftVotes+'</h1></td><td><h1 '+rightClass+'>'+rightVotes+'</h1></td></tr>' +
+                            '</table><hr>' +
                             '<form onsubmit="return false">' +
                             '<input type="submit" onClick="endFilm(this)" value="Go to credits" room="'+roomName+'">' +
                             '</form> ';
