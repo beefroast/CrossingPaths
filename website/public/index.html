@@ -28,14 +28,41 @@
         body, #message { margin-top: 0; background: white; box-shadow: none; }
         body { border-top: 16px solid #ffa100; }
       }
+
+      .outer {
+        display: table;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      .middle {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      .inner {
+        margin-left: auto;
+        margin-right: auto;
+        width: 400px;
+        /*whatever width you want*/
+      }
+
     </style>
   </head>
   <body>
-      
-      <div id="main">
-      </div>
-      
 
+
+      <div class="outer">
+        <div class="middle">
+          <div class="inner">
+            <div id="main">
+            </div>
+          </div>
+        </div>
+      </div>
 
     <script>
         
@@ -74,10 +101,12 @@
               
               // We show the input code in here, they can input a room name
               
-              document.getElementById('main').innerHTML = '<form>' +
-                'Room name:<br>' +
+              document.getElementById('main').innerHTML = 
+                '<h2>Crossing Paths Admin Console</h2>' +
+                '<p>Enter a room name to create a new viewing session, users will enter this room name in the app to connect</p>' +
+                '<form>' +
                 '<input type="text" name="room" value="ABCD">' +
-                '<input type="submit" value="Submit">' +
+                '<input type="submit" value="Create">' +
                 '</form> ';
               
           
@@ -109,16 +138,73 @@
                         // We're waiting for users to join before we begin the film, show a button
                         // that lets the operator start the film...
                         
-                        document.getElementById('main').innerHTML = '<form onsubmit="return false">' +
-                            '<input type="submit" onClick="startFilm(this)" room="'+roomName+'" >' +
-                            '</form> ';
+                        document.getElementById('main').innerHTML = 
+                            '<h2>'+roomName+'</h2>' +
+                            '<p>Now waiting for viewers to join the room.</p>' +
+                            '<form onsubmit="return false">' +
+                            '<input type="checkbox" name="pickingCharacter" value="pickingCharacter">Allow viewers to select starting character<br>' +
+                            '<input type="submit" onClick="startFilm(this)" value="Start Film" room="'+roomName+'" ><br>' +
+                            
+                            '</form>';
                         
                     } else if (status === 'picking') {
                         
                         // The viewers are voting for a character, so we show all the characters and which
                         // ones they've voted for...
+                        var characterVotes = {
+                          "Dunc": 0,
+                          "Zoe": 0,
+                          "Ryan": 0,
+                          "Ness": 0,
+                          "Poe": 0,
+                          "Ed": 0,
+                          "Mandy": 0,
+                          "Ruby": 0,
+                          "Bella": 0,
+                          "Lena": 0,
+                          "Ricky": 0,
+                          "Kelsie": 0
+                        };
+
+                        var orderedKeys = [
+                          "Dunc",
+                          "Zoe",
+                          "Ryan",
+                          "Ness",
+                          "Poe",
+                          "Ed",
+                          "Mandy",
+                          "Ruby",
+                          "Bella",
+                          "Lena",
+                          "Ricky",
+                          "Kelsie"
+                        ];
                         
-                        
+                        snapshot.child('characterVotes').forEach(function(child) {
+
+                            var key = child.val();
+                            var voteCount = characterVotes[key];
+                            characterVotes[key] = voteCount + 1;
+                        });
+
+                        console.log(JSON.stringify(characterVotes));
+
+                        document.getElementById('main').innerHTML = 
+                            '<h2>'+roomName+'</h2>' +
+                            '<p>Collecting votes for starting character.</p>' +
+                            '<div class="votes">' +
+
+                            orderedKeys.map(function (key) {
+                                return '<p>' + key + ': ' +  characterVotes[key] + '</p>';
+                            }).join("") +
+
+                            '<form onsubmit="return false">' +
+                            '<input type="submit" onClick="startFilm(this)" value="Start Film" room="'+roomName+'" ><br>' +
+                            '</form>';
+                            
+                            '</div>' +     
+                            '';                       
                         
 
                     } else if (status === "playing") {
