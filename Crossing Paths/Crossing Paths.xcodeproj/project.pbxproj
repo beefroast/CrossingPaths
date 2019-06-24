@@ -77,6 +77,7 @@
 		64C9FF1622BB956E00B826E8 /* TiltVoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiltVoteViewController.swift; sourceTree = "<group>"; };
 		64C9FF1822BB96FD00B826E8 /* ThanksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksViewController.swift; sourceTree = "<group>"; };
 		64C9FF1A22BDA97F00B826E8 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		64C9FF1C22C04D8000B826E8 /* Crossing Paths.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Crossing Paths.entitlements"; sourceTree = "<group>"; };
 		765F5A49A02CC012AAABD073 /* Pods-Crossing PathsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crossing PathsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crossing PathsTests/Pods-Crossing PathsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		82E9EC4F907CAF175FBA22B9 /* Pods-Crossing Paths.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crossing Paths.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crossing Paths/Pods-Crossing Paths.release.xcconfig"; sourceTree = "<group>"; };
 		99C7BEB4E4AEC2E7F0804A6B /* Pods-Crossing Paths.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crossing Paths.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crossing Paths/Pods-Crossing Paths.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +152,7 @@
 		64A0979622AE62AD00000DB6 /* Crossing Paths */ = {
 			isa = PBXGroup;
 			children = (
+				64C9FF1C22C04D8000B826E8 /* Crossing Paths.entitlements */,
 				64C9FEDA22BA454B00B826E8 /* RabbitOnTheMoon-Italic.ttf */,
 				64A097C822AE69B100000DB6 /* GoogleService-Info.plist */,
 				64A0979722AE62AD00000DB6 /* AppDelegate.swift */,
@@ -273,6 +275,11 @@
 				TargetAttributes = {
 					64A0979322AE62AD00000DB6 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					64A097AA22AE62B200000DB6 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -368,6 +375,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -378,6 +386,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);

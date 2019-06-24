@@ -20,6 +20,7 @@ target 'Crossing Paths' do
 pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
+pod 'Firebase/Messaging'
 pod 'MaterialTextField'
 
 end
