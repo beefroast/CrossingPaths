@@ -39,11 +39,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crossing Paths" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4S7-7R-77l">
-                                <rect key="frame" x="40" y="288" width="334" height="141"/>
+                                <rect key="frame" x="40" y="316.5" width="334" height="84"/>
                                 <fontDescription key="fontDescription" name="RabbitOnTheMoon-Italic" family="Rabbit On The Moon" pointSize="60"/>
                                 <color key="textColor" red="0.92549019610000005" green="0.59215686270000001" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.92865628" green="0.84907379140000006" blue="0.42397285909999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.78039215689999997" green="0.80000000000000004" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
