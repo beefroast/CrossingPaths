@@ -12,13 +12,13 @@ class ChooseStartingCharacterTableViewCell: UITableViewCell {
     
     @IBOutlet weak var characterImageView: UIImageView!
     @IBOutlet weak var characterNameLabel: UILabel!
+    @IBOutlet weak var tickContainer: UIView!
     
 }
 
 
 protocol ChooseStartingCharacterViewControllerDelegate: AnyObject {
-    
-    func chooseStartingCharacter(vc: ChooseStartingCharacterViewController, selectedCharacter: CharacterData)
+    func chooseStartingCharacter(vc: ChooseStartingCharacterViewController, selectedCharacter: CharacterData?)
 }
 
 
@@ -30,6 +30,28 @@ class ChooseStartingCharacterViewController: UIViewController, UITableViewDelega
     
     let characters: [CharacterData] = CharacterData.orderedCharacters
     
+    var selectedIndex: Int? = nil {
+        didSet {
+            
+            guard selectedIndex != oldValue else {
+                return
+            }
+            
+            let selectedCharacter = selectedIndex.map({ self.characters[$0] })
+            self.delegate?.chooseStartingCharacter(vc: self, selectedCharacter: selectedCharacter)
+            
+            let reloadedIndexPaths: [IndexPath?] = [
+                oldValue.map({ return IndexPath.init(row: $0, section: 0) }),
+                selectedIndex.map({ return IndexPath.init(row: $0, section: 0) })
+            ]
+            
+            self.tableView.reloadRows(
+                at: reloadedIndexPaths.compactMap({ return $0 }),
+                with: UITableView.RowAnimation.none
+            )
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,11 +60,10 @@ class ChooseStartingCharacterViewController: UIViewController, UITableViewDelega
         tableView.tableFooterView = UIView()
         tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
+        tableView.separatorStyle = .none
+        
+        self.delegate?.chooseStartingCharacter(vc: self, selectedCharacter: nil)
     }
-    
-    
-    
-    
     
     // MARK: - TableViewDelegate/DataSource Implementation
     
@@ -59,11 +80,16 @@ class ChooseStartingCharacterViewController: UIViewController, UITableViewDelega
         
         cell.characterNameLabel.text = characterData.name
         cell.characterImageView.image = characterData.image
+        cell.selectionStyle = .none
+        
+        cell.tickContainer.isHidden = (self.selectedIndex ?? -1 != indexPath.row)
         
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor.cpMauve
+            cell.tickContainer.backgroundColor = UIColor.cpMauve
         } else {
             cell.backgroundColor = UIColor.cpYellow
+            cell.tickContainer.backgroundColor = UIColor.cpYellow
         }
         
         cell.layoutMargins = UIEdgeInsets.zero
@@ -72,13 +98,20 @@ class ChooseStartingCharacterViewController: UIViewController, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let characterData = characters[indexPath.row]
-
-        self.delegate?.chooseStartingCharacter(vc: self, selectedCharacter: characterData)
-        
+        tableView.deselectRow(at: indexPath, animated: true)
+        if self.selectedIndex == indexPath.row {
+            self.selectedIndex = nil
+        } else {
+            self.selectedIndex = indexPath.row
+        }
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 160
+    }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 160
+    }
 
 }

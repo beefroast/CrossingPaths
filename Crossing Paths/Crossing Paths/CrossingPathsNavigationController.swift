@@ -11,7 +11,9 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class CrossingPathsNavigationController: UINavigationController,
-    SplashViewControllerDelegate, ChooseStartingCharacterViewControllerDelegate, EnterRoomNameViewControllerDelegate, ThanksViewControllerDelegate, VoteViewControllerDelegate {
+SplashViewControllerDelegate, ChooseStartingCharacterViewControllerDelegate, EnterRoomNameViewControllerDelegate, ThanksViewControllerDelegate, VoteViewControllerDelegate {
+
+    
 
     var roomReference: DatabaseReference?
 
@@ -92,7 +94,7 @@ class CrossingPathsNavigationController: UINavigationController,
 
     // MARK: - ChooseStartingCharacterViewControllerDelegate
     
-    func chooseStartingCharacter(vc: ChooseStartingCharacterViewController, selectedCharacter: CharacterData) {
+    func chooseStartingCharacter(vc: ChooseStartingCharacterViewController, selectedCharacter: CharacterData?) {
         
         // Vote for that character to start
         
@@ -100,8 +102,7 @@ class CrossingPathsNavigationController: UINavigationController,
             return
         }
         
-        roomReference?.child("characterVotes").child(id).setValue(selectedCharacter.name)
-
+        roomReference?.child("characterVotes").child(id).setValue(selectedCharacter?.name ?? "None")
     }
     
     // MARK: - ThanksViewControllerDelegate
