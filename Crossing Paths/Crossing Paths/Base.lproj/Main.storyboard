@@ -73,12 +73,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Room code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cic-yR-cfX" customClass="MFTextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Screening Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cic-yR-cfX" customClass="MFTextField">
                                 <rect key="frame" x="20" y="204.5" width="374" height="39"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="hbl-6R-rFx" id="A81-qr-sYH"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EC3-3Q-kMB">
                                 <rect key="frame" x="20" y="303.5" width="374" height="60"/>
@@ -100,7 +103,7 @@
                                     <action selector="onButtonPressed:" destination="hbl-6R-rFx" eventType="touchUpInside" id="mr5-YT-btf"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the room code to begin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBe-NM-f90">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the screening code to begin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBe-NM-f90">
                                 <rect key="frame" x="20" y="120.5" width="374" height="24"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -108,7 +111,49 @@
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="V9x-e4-Pfx">
                                 <rect key="frame" x="188.5" y="315" width="37" height="37"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="color" red="0.78039215689999997" green="0.80000000000000004" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZk-Ek-zVi">
+                                <rect key="frame" x="20" y="802" width="374" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="8tC-DV-oqb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="View credits">
+                                    <color key="titleColor" red="0.042667626439338746" green="0.090151920365051402" blue="0.47002627249726031" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onViewCreditsPressed:" destination="hbl-6R-rFx" eventType="touchUpInside" id="MZD-HA-gd7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpy-M4-xGg">
+                                <rect key="frame" x="20" y="732" width="374" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="ENK-yS-dhi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Visit us on Facebook">
+                                    <color key="titleColor" red="0.042667626439338746" green="0.090151920365051402" blue="0.47002627249726031" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onFacebookPressed:" destination="hbl-6R-rFx" eventType="touchUpInside" id="OuZ-YD-A9e"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.9137254901960784" green="0.92941176470588238" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" red="0.4506067576142132" green="0.10769134737850262" blue="0.18229240982131015" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -119,10 +164,16 @@
                             <constraint firstItem="5iJ-nW-JGW" firstAttribute="trailing" secondItem="EC3-3Q-kMB" secondAttribute="trailing" constant="20" id="EH7-9H-PKk"/>
                             <constraint firstItem="EC3-3Q-kMB" firstAttribute="leading" secondItem="5iJ-nW-JGW" secondAttribute="leading" constant="20" id="H4k-sp-r3a"/>
                             <constraint firstItem="Cic-yR-cfX" firstAttribute="leading" secondItem="5iJ-nW-JGW" secondAttribute="leading" constant="20" id="IaJ-SM-u1e"/>
+                            <constraint firstItem="5iJ-nW-JGW" firstAttribute="trailing" secondItem="VZk-Ek-zVi" secondAttribute="trailing" constant="20" id="OHL-M2-Idb"/>
                             <constraint firstItem="Cic-yR-cfX" firstAttribute="top" secondItem="DBe-NM-f90" secondAttribute="bottom" constant="60" id="PLR-aD-Pch"/>
+                            <constraint firstItem="VZk-Ek-zVi" firstAttribute="leading" secondItem="5iJ-nW-JGW" secondAttribute="leading" constant="20" id="RUt-r9-On6"/>
+                            <constraint firstItem="VZk-Ek-zVi" firstAttribute="top" secondItem="Fpy-M4-xGg" secondAttribute="bottom" constant="10" id="Xe3-y7-oda"/>
                             <constraint firstItem="DBe-NM-f90" firstAttribute="leading" secondItem="5iJ-nW-JGW" secondAttribute="leading" constant="20" id="XhW-bU-gBj"/>
                             <constraint firstItem="V9x-e4-Pfx" firstAttribute="centerX" secondItem="EC3-3Q-kMB" secondAttribute="centerX" id="YJa-5z-TKa"/>
+                            <constraint firstItem="Fpy-M4-xGg" firstAttribute="leading" secondItem="5iJ-nW-JGW" secondAttribute="leading" constant="20" id="gvo-zl-ZNu"/>
                             <constraint firstItem="5iJ-nW-JGW" firstAttribute="trailing" secondItem="DBe-NM-f90" secondAttribute="trailing" constant="20" id="haw-QZ-4Jp"/>
+                            <constraint firstItem="5iJ-nW-JGW" firstAttribute="bottom" secondItem="VZk-Ek-zVi" secondAttribute="bottom" id="mdo-Br-KFL"/>
+                            <constraint firstItem="5iJ-nW-JGW" firstAttribute="trailing" secondItem="Fpy-M4-xGg" secondAttribute="trailing" constant="20" id="rbO-uR-kLU"/>
                             <constraint firstItem="Cic-yR-cfX" firstAttribute="centerY" secondItem="pec-Ze-qgL" secondAttribute="centerY" multiplier="0.5" id="s4y-iG-6B3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5iJ-nW-JGW"/>
@@ -130,6 +181,8 @@
                     <navigationItem key="navigationItem" id="WaH-ve-doF"/>
                     <connections>
                         <outlet property="activityIndicator" destination="V9x-e4-Pfx" id="CFb-61-off"/>
+                        <outlet property="creditsButton" destination="VZk-Ek-zVi" id="XZz-18-kjI"/>
+                        <outlet property="facebookButton" destination="Fpy-M4-xGg" id="4x0-HZ-A7C"/>
                         <outlet property="roomNameButton" destination="EC3-3Q-kMB" id="0cW-vM-Hbr"/>
                         <outlet property="roomNameTextField" destination="Cic-yR-cfX" id="PpD-LE-oXa"/>
                         <segue destination="s2u-vd-lYl" kind="show" identifier="pickCharacter" id="6kT-Vx-ATD"/>
@@ -217,10 +270,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Fb-YG-6nA">
-                                <rect key="frame" x="20" y="425" width="374" height="46.5"/>
+                                <rect key="frame" x="20" y="390" width="374" height="116.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please hold your phone up vertically. Once vertical, you can tilt left and right to vote!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAT-83-kjP">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="46.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAT-83-kjP">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="116.5"/>
+                                        <string key="text">Please hold your phone up vertically. Once vertical, you can tilt left and right to vote!
+
+Change your vote at any time by tilting the other way.</string>
                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -235,10 +291,10 @@
                                 </constraints>
                             </view>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Left" translatesAutoresizingMaskIntoConstraints="NO" id="VxO-ys-EtS">
-                                <rect key="frame" x="107" y="348" width="200" height="200"/>
+                                <rect key="frame" x="57" y="298" width="300" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="PyY-hg-Arr"/>
-                                    <constraint firstAttribute="height" constant="200" id="mNg-KL-ala"/>
+                                    <constraint firstAttribute="width" constant="300" id="PyY-hg-Arr"/>
+                                    <constraint firstAttribute="height" constant="300" id="mNg-KL-ala"/>
                                 </constraints>
                             </imageView>
                         </subviews>

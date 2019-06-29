@@ -15,6 +15,8 @@ SplashViewControllerDelegate, ChooseStartingCharacterViewControllerDelegate, Ent
 
     
 
+    
+
     var roomReference: DatabaseReference?
 
     var userId: String? {
@@ -40,6 +42,12 @@ SplashViewControllerDelegate, ChooseStartingCharacterViewControllerDelegate, Ent
     
     
     // MARK: - EnterRoomNameViewControllerDelegate Implementation
+    
+    fileprivate func openCredits() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "thanks") as! ThanksViewController
+        vc.delegate = self
+        self.setViewControllers([vc], animated: true)
+    }
     
     func enterRoomName(vc: EnterRoomNameViewController, enteredRoomName: String) {
         
@@ -78,9 +86,7 @@ SplashViewControllerDelegate, ChooseStartingCharacterViewControllerDelegate, Ent
                 self.setViewControllers([vc!], animated: true)
                 
             case .finished:
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "thanks") as! ThanksViewController
-                vc.delegate = self
-                self.setViewControllers([vc], animated: true)
+                self.openCredits()
                 break
                 
             }
@@ -89,6 +95,17 @@ SplashViewControllerDelegate, ChooseStartingCharacterViewControllerDelegate, Ent
             self.goToEnterRoomView()
         }
         
+    }
+    
+    func enterRoomName(vc: EnterRoomNameViewController, pressedFacebook: Any?) {
+        guard let fbUrl = URL(string: "https://www.facebook.com/crossingpathsfilm/") else { return }
+        if UIApplication.shared.canOpenURL(fbUrl) {
+            UIApplication.shared.open(fbUrl, options: [:], completionHandler: nil)
+        }
+    }
+    
+    func enterRoomName(vc: EnterRoomNameViewController, pressedCredits: Any?) {
+        self.openCredits()
     }
     
 
