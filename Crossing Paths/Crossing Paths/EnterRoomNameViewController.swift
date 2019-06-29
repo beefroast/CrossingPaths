@@ -79,7 +79,7 @@ class EnterRoomNameViewController: UIViewController, UITextFieldDelegate {
         guard let typeCasteToStringFirst = textField.text as? NSString else { return false }
         let newString = typeCasteToStringFirst.replacingCharacters(in: range, with: string)
         guard let sString = newString as? String else { return false }
-        return sString.isAlphanumeric() && sString.count <= 10
+        return (sString.isAlphanumeric() && sString.count <= 10) || sString.count == 0
     }
 
 }
