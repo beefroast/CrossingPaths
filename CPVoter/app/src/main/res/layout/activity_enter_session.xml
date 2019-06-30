@@ -6,26 +6,29 @@
               android:paddingRight="16dp"
               android:orientation="vertical" >
     <TextView
-            android:id="@+id/room_name"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="Enter the screening code to begin" />
     <EditText
+            android:id="@+id/room_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Screening Code" />
     <Button
+            android:id="@+id/btn_enter_room"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Enter" />
 
     <Button
+            android:id="@+id/btn_facebook"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Visit us on Facebook" />
     <Button
+            android:id="@+id/btn_credits"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
