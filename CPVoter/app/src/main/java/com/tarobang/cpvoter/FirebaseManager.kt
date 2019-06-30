@@ -1,5 +1,6 @@
 package com.tarobang.cpvoter
 
+import android.content.Intent
 import android.util.Log
 import com.google.firebase.database.*
 
@@ -45,6 +46,13 @@ class FirebaseManager : ValueEventListener {
             // There's no status, so we should stop listening
             stopListening()
             return
+
+        } else if (status == "waiting") {
+
+//            val intent = Intent(null, WaitingToBeginActivity::class.java)
+//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//            startActivity(intent)
+
         }
 
         Log.w("FB", status)
