@@ -9,8 +9,11 @@ import android.widget.ArrayAdapter
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.widget.TextView
+import com.jackandphantom.circularimageview.CircleImage
 
 class PickCharacterActivity : BaseActivity() {
 
@@ -37,7 +40,9 @@ class PickCharacterActivity : BaseActivity() {
 
         this.listView = findViewById<ListView>(R.id.list_view)
 
-        val adapter = CharacterAdapter(this, characterData)
+        
+
+        val adapter = CharacterAdapter(this, characterData, resources.getColor(R.color.cpYellow), resources.getColor(R.color.cpMauve))
         listView.adapter = adapter
 
         listView.setOnItemClickListener { _, _, position, _ ->
@@ -45,11 +50,15 @@ class PickCharacterActivity : BaseActivity() {
             FirebaseManager.instance.voteForCharacter(character.name)
         }
 
+        val col = resources.getColor(R.color.cpYellow)
+        listView.setBackgroundColor(col)
     }
 
 
     private class CharacterAdapter(private val context: Context,
-                                   private val dataSource: Array<CharacterData>): BaseAdapter() {
+                                   private val dataSource: Array<CharacterData>,
+                                   private val colorA: Color,
+                                   private val colorB: Color): BaseAdapter() {
 
         private val inflater: LayoutInflater
                 = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -66,17 +75,42 @@ class PickCharacterActivity : BaseActivity() {
             return position.toLong()
         }
 
+//        fun getColorFor(position: Int) {
+//            if (position % 2 == 0) {
+//                return getResources().get
+//            } else {
+//
+//            }
+//        }
+
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
             val rowView = inflater.inflate(R.layout.character_item, parent, false)
             val character = dataSource[position]
 
             val name = rowView.findViewById<TextView>(R.id.character_name)
-            val imgView = rowView.findViewById<ImageView>(R.id.character_image_view)
+            val imgView = rowView.findViewById<CircleImage>(R.id.character_image_view)
 
             name.text = character.name
             imgView.setImageResource(character.img)
 
+
+            if (position % 2 == 0) {
+                imgView.setBackgroundColor(R.color.cpMauve)
+                rowView.setBackgroundColor(R.color.cpMauve)
+            } else {
+                imgView.setBackgroundColor(R.color.cpYellow)
+                rowView.setBackgroundColor(R.color.cpYellow)
+            }
+
+//
+//            if indexPath.row % 2 == 0 {
+//                cell.backgroundColor = UIColor.cpMauve
+//                cell.tickContainer.backgroundColor = UIColor.cpMauve
+//            } else {
+//                cell.backgroundColor = UIColor.cpYellow
+//                cell.tickContainer.backgroundColor = UIColor.cpYellow
+//            }
 
 
             return rowView
