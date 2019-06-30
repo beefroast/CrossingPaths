@@ -10,7 +10,7 @@ import com.google.firebase.database.*
 
 import kotlinx.android.synthetic.main.activity_enter_session.*
 
-class EnterSessionActivity : AppCompatActivity() {
+class EnterSessionActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 

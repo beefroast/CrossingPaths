@@ -12,6 +12,7 @@ class FirebaseManager : ValueEventListener {
     }
 
     var roomReference: DatabaseReference? = null
+    var currentActivity: BaseActivity? = null
 
     fun startListeningTo(session: String) {
 
@@ -49,9 +50,14 @@ class FirebaseManager : ValueEventListener {
 
         } else if (status == "waiting") {
 
-//            val intent = Intent(null, WaitingToBeginActivity::class.java)
-//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//            startActivity(intent)
+            this.currentActivity?.let {
+                val intent = Intent(it, WaitingToBeginActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                it.startActivity(intent)
+                it.finish()
+            }
 
         }
 
