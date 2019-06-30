@@ -2,6 +2,7 @@ package com.tarobang.cpvoter
 
 import android.content.Intent
 import android.util.Log
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 
@@ -22,16 +23,35 @@ class FirebaseManager : ValueEventListener {
 
         this.roomReference = root.child(session)
 
+
+
         roomReference?.let {
-            it.addValueEventListener(this)
+            it.child("status").addValueEventListener(this)
         }
     }
 
     fun stopListening() {
         roomReference?.let {
-            it.removeEventListener(this)
+            it.child("status").removeEventListener(this)
         }
     }
+
+    fun voteForCharacter(name: String) {
+
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+
+        if (userId == null) { return }
+
+        roomReference?.let {
+            it.child("characterVotes")
+                .child(userId)
+                .setValue(name)
+        }
+
+    }
+
+
+
 
     override fun onCancelled(p0: DatabaseError) {
         Log.w("FB", "Cancelled")
@@ -41,7 +61,7 @@ class FirebaseManager : ValueEventListener {
 
         // Get the status of the screening
 
-        val status = p0.child("status").getValue(String::class.java)
+        val status = p0.getValue(String::class.java)
 
         if (status == null) {
             // There's no status, so we should stop listening

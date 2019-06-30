@@ -39,6 +39,11 @@ class PickCharacterActivity : BaseActivity() {
         val adapter = CharacterAdapter(this, characterData)
         listView.adapter = adapter
 
+        listView.setOnItemClickListener { _, _, position, _ ->
+            val character = characterData[position]
+            FirebaseManager.instance.voteForCharacter(character.name)
+        }
+
     }
 
 
@@ -71,7 +76,7 @@ class PickCharacterActivity : BaseActivity() {
 
             return rowView
         }
-        
+
 
     }
 
