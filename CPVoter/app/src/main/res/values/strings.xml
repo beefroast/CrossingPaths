@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CP Voter</string>
+    <string name="title_activity_enter_session">EnterSessionActivity</string>
 </resources>
