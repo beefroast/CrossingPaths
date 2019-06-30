@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ListView
 import android.widget.ArrayAdapter
 import android.widget.BaseAdapter
+import android.widget.ImageView
 import android.content.Context
 import android.view.LayoutInflater
 import android.widget.TextView
@@ -16,18 +17,18 @@ class PickCharacterActivity : BaseActivity() {
     lateinit var listView: ListView
 
     private val characterData = arrayOf(
-        CharacterData("Dunc"),
-        CharacterData("Zoe"),
-        CharacterData("Ryan"),
-        CharacterData("Ness"),
-        CharacterData("Poe"),
-        CharacterData("Ed"),
-        CharacterData("Mandy"),
-        CharacterData("Ruby"),
-        CharacterData("Bella"),
-        CharacterData("Lena"),
-        CharacterData("Ricky"),
-        CharacterData("Kelsie")
+        CharacterData("Dunc", R.drawable.a),
+        CharacterData("Zoe", R.drawable.b),
+        CharacterData("Ryan", R.drawable.c),
+        CharacterData("Ness", R.drawable.d),
+        CharacterData("Poe", R.drawable.e),
+        CharacterData("Ed", R.drawable.f),
+        CharacterData("Mandy", R.drawable.g),
+        CharacterData("Ruby", R.drawable.h),
+        CharacterData("Bella", R.drawable.i),
+        CharacterData("Lena", R.drawable.j),
+        CharacterData("Ricky", R.drawable.k),
+        CharacterData("Kelsie", R.drawable.l)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,8 +72,12 @@ class PickCharacterActivity : BaseActivity() {
             val character = dataSource[position]
 
             val name = rowView.findViewById<TextView>(R.id.character_name)
+            val imgView = rowView.findViewById<ImageView>(R.id.character_image_view)
 
             name.text = character.name
+            imgView.setImageResource(character.img)
+
+
 
             return rowView
         }
@@ -80,5 +85,5 @@ class PickCharacterActivity : BaseActivity() {
 
     }
 
-    private class CharacterData(val name: String)
+    private class CharacterData(val name: String, val img: Int)
 }
