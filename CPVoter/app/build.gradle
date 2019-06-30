@@ -36,6 +36,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.firebase:firebase-auth:18.0.0'
     implementation 'com.google.firebase:firebase-database:18.0.0'
+    implementation 'com.jackandphantom.android:circularimageview:1.2.0'
+
 }
 
 apply plugin: 'com.google.gms.google-services'

@@ -3,6 +3,16 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <com.jackandphantom.circularimageview.CircleImage
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/a"
+            android:id="@+id/circleImage"
+            android:background="@color/colorClear"/>
     <ImageView
             android:id="@+id/character_image_view"
             android:layout_width="100dp"
