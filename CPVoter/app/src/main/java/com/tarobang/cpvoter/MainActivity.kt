@@ -25,6 +25,8 @@ class MainActivity : BaseActivity() {
         }
 
 
+
+
         Handler().postDelayed({
             signInAndMoveToFirstScreen()
         }, 2000)
