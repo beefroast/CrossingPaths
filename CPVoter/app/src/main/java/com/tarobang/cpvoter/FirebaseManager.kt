@@ -5,6 +5,9 @@ import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
+enum class Vote {
+    NONE, LEFT, RIGHT
+}
 
 class FirebaseManager : ValueEventListener {
 
@@ -50,6 +53,26 @@ class FirebaseManager : ValueEventListener {
 
     }
 
+    fun voteDirection(vote: Vote) {
+
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+
+        if (userId == null) { return }
+
+        roomReference?.let {
+            it.child("leftRightVotes")
+                .child(userId)
+                .setValue(stringFor(vote))
+        }
+    }
+
+    fun stringFor(vote: Vote): String {
+         when(vote) {
+            Vote.NONE -> return "none"
+            Vote.LEFT -> return "left"
+            Vote.RIGHT -> return "right"
+         }
+    }
 
 
 
@@ -83,6 +106,17 @@ class FirebaseManager : ValueEventListener {
 
             this.currentActivity?.let {
                 val intent = Intent(it, PickCharacterActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                it.startActivity(intent)
+                it.finish()
+            }
+
+        } else if (status == "playing") {
+
+            this.currentActivity?.let {
+                val intent = Intent(it, TiltVoteActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
