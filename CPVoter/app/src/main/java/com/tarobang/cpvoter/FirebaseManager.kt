@@ -16,9 +16,7 @@ class FirebaseManager : ValueEventListener {
 
         val root: DatabaseReference = FirebaseDatabase.getInstance().reference
 
-        roomReference?.let {
-            it.removeEventListener(this)
-        }
+        stopListening()
 
         this.roomReference = root.child(session)
 
@@ -27,12 +25,32 @@ class FirebaseManager : ValueEventListener {
         }
     }
 
+    fun stopListening() {
+        roomReference?.let {
+            it.removeEventListener(this)
+        }
+    }
+
     override fun onCancelled(p0: DatabaseError) {
         Log.w("FB", "Cancelled")
     }
 
     override fun onDataChange(p0: DataSnapshot) {
-        Log.w("FB", p0.toString())
+
+        // Get the status of the screening
+
+        val status = p0.child("status").getValue(String::class.java)
+
+        if (status == null) {
+            // There's no status, so we should stop listening
+            stopListening()
+            return
+        }
+
+        Log.w("FB", status)
+
+
+
     }
 
 }
