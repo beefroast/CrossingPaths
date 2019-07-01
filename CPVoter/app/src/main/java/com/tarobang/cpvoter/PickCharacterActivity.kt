@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.Drawable
+import android.opengl.Visibility
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.TextView
@@ -42,13 +43,26 @@ class PickCharacterActivity : BaseActivity() {
         this.listView = findViewById<ListView>(R.id.list_view)
 
 
-
         val adapter = CharacterAdapter(this, characterData)
         listView.adapter = adapter
 
         listView.setOnItemClickListener { _, _, position, _ ->
-            val character = characterData[position]
-            FirebaseManager.instance.voteForCharacter(character.name)
+
+            if (position > 0) {
+
+                val idx = position-1
+
+                if (idx == adapter.pickedIndex) {
+                    adapter.pickedIndex = null
+                    FirebaseManager.instance.voteForCharacter("None")
+                } else {
+                    adapter.pickedIndex = idx
+                    val character = characterData[idx]
+                    FirebaseManager.instance.voteForCharacter(character.name)
+                }
+
+                adapter.notifyDataSetChanged()
+            }
         }
 
         val col = resources.getColor(R.color.cpYellow)
@@ -59,61 +73,59 @@ class PickCharacterActivity : BaseActivity() {
     private class CharacterAdapter(private val context: Context,
                                    private val dataSource: Array<CharacterData>): BaseAdapter() {
 
+        var pickedIndex: Int? = null
+
         private val inflater: LayoutInflater
                 = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
         override fun getCount(): Int {
-            return dataSource.size
+            return dataSource.size + 1
         }
 
         override fun getItem(position: Int): Any {
-            return dataSource[position]
+            return dataSource[position-1]
         }
 
         override fun getItemId(position: Int): Long {
             return position.toLong()
         }
 
-//        fun getColorFor(position: Int) {
-//            if (position % 2 == 0) {
-//                return getResources().get
-//            } else {
-//
-//            }
-//        }
-
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
+
+            if (position == 0) {
+                return inflater.inflate(R.layout.pick_character_header, parent, false)
+            }
+
+            val idx = position-1
+
             val rowView = inflater.inflate(R.layout.character_item, parent, false)
-            val character = dataSource[position]
+
+            val character = dataSource[idx]
 
             val name = rowView.findViewById<TextView>(R.id.character_name)
             val imgView = rowView.findViewById<CircleImage>(R.id.character_image_view)
+            val tickView = rowView.findViewById<ImageView>(R.id.character_selected)
 
             name.text = character.name
             imgView.setImageResource(character.img)
 
-            Log.w("CUNT", (position % 2).toString())
+
+            tickView.visibility = View.INVISIBLE
+            pickedIndex?.let {
+                if (idx == it) {
+                    tickView.visibility = View.VISIBLE
+                }
+            }
 
 
-
-            if ((position % 2) == 0) {
+            if ((idx % 2) == 0) {
                 rowView.setBackgroundColor(Color.parseColor("#DCA4C2"))
                 imgView.setBackgroundColor(Color.parseColor("#DCA4C2"))
             } else {
                 rowView.setBackgroundColor(Color.parseColor("#E9EDB1"))
                 imgView.setBackgroundColor(Color.parseColor("#E9EDB1"))
             }
-
-//
-//            if indexPath.row % 2 == 0 {
-//                cell.backgroundColor = UIColor.cpMauve
-//                cell.tickContainer.backgroundColor = UIColor.cpMauve
-//            } else {
-//                cell.backgroundColor = UIColor.cpYellow
-//                cell.tickContainer.backgroundColor = UIColor.cpYellow
-//            }
-
 
             return rowView
         }
