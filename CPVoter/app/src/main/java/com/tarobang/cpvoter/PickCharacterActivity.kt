@@ -63,57 +63,40 @@ class PickCharacterActivity : BaseActivity() {
                 = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
         override fun getCount(): Int {
-            return dataSource.size
+            return dataSource.size + 1
         }
 
         override fun getItem(position: Int): Any {
-            return dataSource[position]
+            return dataSource[position-1]
         }
 
         override fun getItemId(position: Int): Long {
             return position.toLong()
         }
 
-//        fun getColorFor(position: Int) {
-//            if (position % 2 == 0) {
-//                return getResources().get
-//            } else {
-//
-//            }
-//        }
-
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
-            val rowView = inflater.inflate(R.layout.character_item, parent, false)
-            val character = dataSource[position]
 
+            if (position == 0) {
+                return inflater.inflate(R.layout.pick_character_header, parent, false)
+            }
+
+            val rowView = inflater.inflate(R.layout.character_item, parent, false)
+
+            val character = dataSource[position-1]
             val name = rowView.findViewById<TextView>(R.id.character_name)
             val imgView = rowView.findViewById<CircleImage>(R.id.character_image_view)
 
             name.text = character.name
             imgView.setImageResource(character.img)
 
-            Log.w("CUNT", (position % 2).toString())
-
-
-
-            if ((position % 2) == 0) {
+            if ((position % 2) == 1) {
                 rowView.setBackgroundColor(Color.parseColor("#DCA4C2"))
                 imgView.setBackgroundColor(Color.parseColor("#DCA4C2"))
             } else {
                 rowView.setBackgroundColor(Color.parseColor("#E9EDB1"))
                 imgView.setBackgroundColor(Color.parseColor("#E9EDB1"))
             }
-
-//
-//            if indexPath.row % 2 == 0 {
-//                cell.backgroundColor = UIColor.cpMauve
-//                cell.tickContainer.backgroundColor = UIColor.cpMauve
-//            } else {
-//                cell.backgroundColor = UIColor.cpYellow
-//                cell.tickContainer.backgroundColor = UIColor.cpYellow
-//            }
-
 
             return rowView
         }
