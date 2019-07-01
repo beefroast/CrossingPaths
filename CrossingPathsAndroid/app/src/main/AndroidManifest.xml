@@ -9,6 +9,39 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity
+                android:name=".CreditsActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:label="@string/title_activity_credits"
+                android:theme="@style/FullscreenTheme">
+        </activity>
+        <activity
+                android:name=".VotingActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:label="@string/title_activity_voting"
+                android:theme="@style/FullscreenTheme">
+        </activity>
+        <activity
+                android:name=".WaitingForRoomActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:label="@string/title_activity_waiting_for_room"
+                android:theme="@style/FullscreenTheme">
+        </activity>
+        <activity
+                android:name=".ThankYouActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:label="@string/title_activity_thank_you"
+                android:theme="@style/FullscreenTheme">
+        </activity>
+        <activity
+                android:name=".ui.login.ChooseRoomActivity"
+                android:label="@string/title_activity_choose_room">
+        </activity>
+        <activity
+                android:name=".ChooseCharacterActivity"
+                android:label="@string/title_activity_choose_character"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -16,6 +49,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <meta-data
+                android:name="preloaded_fonts"
+                android:resource="@array/preloaded_fonts"/>
     </application>
 
 </manifest>

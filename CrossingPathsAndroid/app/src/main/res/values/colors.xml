@@ -12,4 +12,6 @@
     <color name="Orangered">#EC9780</color>
     <color name="Green">#B0F0C8</color>
     <color name="Orange">#F3C68F</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>
