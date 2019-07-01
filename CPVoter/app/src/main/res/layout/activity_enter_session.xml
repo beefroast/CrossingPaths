@@ -1,37 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:paddingLeft="16dp"
-              android:paddingRight="16dp"
-              android:orientation="vertical" >
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:background="@color/cpYellow"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:id="@+id/linearLayout" android:layout_marginLeft="80dp"
+                                                   android:layout_marginRight="80dp" android:layout_marginBottom="80dp">
     <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="Enter the screening code to begin" />
+            android:layout_height="28dp"
+            android:layout_width="252dp"
+            android:text="Enter the screening code to begin"
+            android:id="@+id/textView" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="80dp"
+            android:layout_marginStart="80dp" app:layout_constraintBottom_toTopOf="@+id/room_name"
+            app:layout_constraintVertical_bias="0.877" android:layout_marginTop="250dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="30dp" app:layout_constraintHorizontal_bias="0.962"/>
     <EditText
             android:id="@+id/room_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Screening Code" />
+            android:layout_width="255dp"
+            android:layout_height="76dp"
+            android:hint="Screening Code"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btn_enter_room"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            android:layout_marginLeft="80dp" android:layout_marginStart="80dp" android:layout_marginRight="80dp"
+            android:layout_marginEnd="80dp" android:layout_marginTop="200" android:layout_marginBottom="10"
+            app:layout_constraintHorizontal_bias="0.506" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/textView"/>
     <Button
             android:id="@+id/btn_enter_room"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Enter" />
+            android:layout_width="250dp"
+            android:layout_height="73dp"
+            android:text="Enter"
+            app:layout_constraintTop_toBottomOf="@+id/room_name" android:layout_marginBottom="5dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@id/btn_facebook"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.908"
+            android:layout_marginLeft="80dp" android:layout_marginStart="80dp" android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp" android:fadingEdge="horizontal|vertical" android:layout_marginTop="10dp"
+            android:background="@color/cpLavender"/>
 
     <Button
             android:id="@+id/btn_facebook"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Visit us on Facebook" />
+            android:layout_width="249dp"
+            android:layout_height="38dp"
+            android:text="Visit us on Facebook"
+            app:layout_constraintTop_toBottomOf="@+id/btn_enter_room" android:layout_marginBottom="5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btn_credits"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="1.0"
+            android:layout_marginLeft="80dp" android:layout_marginStart="80dp"
+            android:layout_marginTop="5" android:background="@color/colorClear"/>
     <Button
             android:id="@+id/btn_credits"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="View credits" />
+            android:layout_width="250dp"
+            android:layout_height="42dp"
+            android:text="View credits"
+            app:layout_constraintTop_toBottomOf="@+id/btn_facebook" android:layout_marginBottom="100dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="@id/btn_facebook"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="80dp"
+            android:layout_marginStart="80dp" android:layout_marginTop="10dp"
+            app:layout_constraintBaseline_toBaselineOf="parent" app:layout_constraintHorizontal_bias="0.919"
+            android:background="@color/colorClear"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
