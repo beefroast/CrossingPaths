@@ -42,13 +42,15 @@ class PickCharacterActivity : BaseActivity() {
         this.listView = findViewById<ListView>(R.id.list_view)
 
 
-
         val adapter = CharacterAdapter(this, characterData)
         listView.adapter = adapter
 
         listView.setOnItemClickListener { _, _, position, _ ->
-            val character = characterData[position]
-            FirebaseManager.instance.voteForCharacter(character.name)
+
+            if (position > 0) {
+                val character = characterData[position-1]
+                FirebaseManager.instance.voteForCharacter(character.name)
+            }
         }
 
         val col = resources.getColor(R.color.cpYellow)

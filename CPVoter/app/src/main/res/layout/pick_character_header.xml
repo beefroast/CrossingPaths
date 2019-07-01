@@ -15,6 +15,8 @@
         android:layout_marginBottom="20dp"
         android:textAlignment="center"
         android:gravity="bottom"
+        android:fontFamily="@font/avenir_light"
+        android:textSize="17dp"
         />
 
 </LinearLayout>
