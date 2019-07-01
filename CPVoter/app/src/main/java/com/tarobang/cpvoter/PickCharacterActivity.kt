@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.TextView
 import com.jackandphantom.circularimageview.CircleImage
@@ -40,9 +41,9 @@ class PickCharacterActivity : BaseActivity() {
 
         this.listView = findViewById<ListView>(R.id.list_view)
 
-        
 
-        val adapter = CharacterAdapter(this, characterData, resources.getColor(R.color.cpYellow), resources.getColor(R.color.cpMauve))
+
+        val adapter = CharacterAdapter(this, characterData)
         listView.adapter = adapter
 
         listView.setOnItemClickListener { _, _, position, _ ->
@@ -56,9 +57,7 @@ class PickCharacterActivity : BaseActivity() {
 
 
     private class CharacterAdapter(private val context: Context,
-                                   private val dataSource: Array<CharacterData>,
-                                   private val colorA: Color,
-                                   private val colorB: Color): BaseAdapter() {
+                                   private val dataSource: Array<CharacterData>): BaseAdapter() {
 
         private val inflater: LayoutInflater
                 = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -94,13 +93,16 @@ class PickCharacterActivity : BaseActivity() {
             name.text = character.name
             imgView.setImageResource(character.img)
 
+            Log.w("CUNT", (position % 2).toString())
 
-            if (position % 2 == 0) {
-                imgView.setBackgroundColor(R.color.cpMauve)
-                rowView.setBackgroundColor(R.color.cpMauve)
+
+
+            if ((position % 2) == 0) {
+                rowView.setBackgroundColor(Color.parseColor("#DCA4C2"))
+                imgView.setBackgroundColor(Color.parseColor("#DCA4C2"))
             } else {
-                imgView.setBackgroundColor(R.color.cpYellow)
-                rowView.setBackgroundColor(R.color.cpYellow)
+                rowView.setBackgroundColor(Color.parseColor("#E9EDB1"))
+                imgView.setBackgroundColor(Color.parseColor("#E9EDB1"))
             }
 
 //

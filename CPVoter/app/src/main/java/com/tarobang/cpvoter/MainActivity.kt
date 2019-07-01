@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Handler
 import android.view.WindowManager
 import android.os.Build
+import android.util.Log
 import android.view.View
 
 class MainActivity : BaseActivity() {
@@ -35,13 +36,16 @@ class MainActivity : BaseActivity() {
 
     fun signInAndMoveToFirstScreen() {
         val auth = FirebaseAuth.getInstance()
-        auth.signInAnonymously().addOnCompleteListener {
+
+
+        auth.signInAnonymously().addOnCompleteListener(this, {
             val intent = Intent(this@MainActivity, EnterSessionActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
             startActivity(intent)
             finish()
-        }
+        })
+
     }
 }
