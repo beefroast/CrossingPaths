@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.Drawable
+import android.opengl.Visibility
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.TextView
@@ -48,8 +49,19 @@ class PickCharacterActivity : BaseActivity() {
         listView.setOnItemClickListener { _, _, position, _ ->
 
             if (position > 0) {
-                val character = characterData[position-1]
-                FirebaseManager.instance.voteForCharacter(character.name)
+
+                val idx = position-1
+
+                if (idx == adapter.pickedIndex) {
+                    adapter.pickedIndex = null
+                    FirebaseManager.instance.voteForCharacter("None")
+                } else {
+                    adapter.pickedIndex = idx
+                    val character = characterData[idx]
+                    FirebaseManager.instance.voteForCharacter(character.name)
+                }
+
+                adapter.notifyDataSetChanged()
             }
         }
 
@@ -60,6 +72,8 @@ class PickCharacterActivity : BaseActivity() {
 
     private class CharacterAdapter(private val context: Context,
                                    private val dataSource: Array<CharacterData>): BaseAdapter() {
+
+        var pickedIndex: Int? = null
 
         private val inflater: LayoutInflater
                 = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -83,16 +97,29 @@ class PickCharacterActivity : BaseActivity() {
                 return inflater.inflate(R.layout.pick_character_header, parent, false)
             }
 
+            val idx = position-1
+
             val rowView = inflater.inflate(R.layout.character_item, parent, false)
 
-            val character = dataSource[position-1]
+            val character = dataSource[idx]
+
             val name = rowView.findViewById<TextView>(R.id.character_name)
             val imgView = rowView.findViewById<CircleImage>(R.id.character_image_view)
+            val tickView = rowView.findViewById<ImageView>(R.id.character_selected)
 
             name.text = character.name
             imgView.setImageResource(character.img)
 
-            if ((position % 2) == 1) {
+
+            tickView.visibility = View.INVISIBLE
+            pickedIndex?.let {
+                if (idx == it) {
+                    tickView.visibility = View.VISIBLE
+                }
+            }
+
+
+            if ((idx % 2) == 0) {
                 rowView.setBackgroundColor(Color.parseColor("#DCA4C2"))
                 imgView.setBackgroundColor(Color.parseColor("#DCA4C2"))
             } else {
