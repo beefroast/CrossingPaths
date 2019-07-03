@@ -10,14 +10,15 @@
 >
 
     <ImageView
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:src="@drawable/splash"
             android:scaleType="centerCrop"
-    />
-        />
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
+
+
+            />
 
     <!--<TextView-->
             <!--android:layout_width="wrap_content"-->
