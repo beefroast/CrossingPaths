@@ -286,10 +286,10 @@ Change your vote at any time by tilting the other way.</string>
                                 </constraints>
                             </view>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Left" translatesAutoresizingMaskIntoConstraints="NO" id="VxO-ys-EtS">
-                                <rect key="frame" x="57" y="298" width="300" height="300"/>
+                                <rect key="frame" x="7" y="248" width="400" height="400"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="PyY-hg-Arr"/>
-                                    <constraint firstAttribute="height" constant="300" id="mNg-KL-ala"/>
+                                    <constraint firstAttribute="width" constant="400" id="PyY-hg-Arr"/>
+                                    <constraint firstAttribute="height" constant="400" id="mNg-KL-ala"/>
                                 </constraints>
                             </imageView>
                         </subviews>
