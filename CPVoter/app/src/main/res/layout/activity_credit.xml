@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CreditActivity">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/cpOrangered" >
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/colorClear"
+        >
+
+
+
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="100dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/rabbit" android:textSize="30sp" android:text="WRITTEN AND DIRECTED BY" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/avenir_light" android:textSize="24sp" android:text="JJ Winlove" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="100dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/rabbit" android:textSize="30sp" android:text="PRODUCED BY" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/avenir_light" android:textSize="24sp" android:text="Emily Bull" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/avenir_light" android:textSize="24sp" android:text="Libby Hams" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/avenir_light" android:textSize="24sp" android:text="JJ Winlove" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="100dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/rabbit" android:textSize="30sp" android:text="DIRECTOR OF PHOTOGRAPHY" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/avenir_light" android:textSize="24sp" android:text="Jonathan Tyler" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="100dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/rabbit" android:textSize="30sp" android:text="PRODUCTION DESIGNER" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/avenir_light" android:textSize="24sp" android:text="Brodie Simpson" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="100dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/rabbit" android:textSize="30sp" android:text="EDITOR" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/avenir_light" android:textSize="24sp" android:text="Alexandre Guterres" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="100dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/rabbit" android:textSize="30sp" android:text="CASTING DIRECTOR" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/avenir_light" android:textSize="24sp" android:text="Antonia Murphy CGA" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="100dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/rabbit" android:textSize="30sp" android:text="SOUND RECORDISTS" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/avenir_light" android:textSize="24sp" android:text="Sam Whittaker" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/avenir_light" android:textSize="24sp" android:text="Jack Robins" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/avenir_light" android:textSize="24sp" android:text="Piotr Wasilewski" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="100dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/rabbit" android:textSize="30sp" android:text="COLOURIST" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/avenir_light" android:textSize="24sp" android:text="Sie Kitts" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="100dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/rabbit" android:textSize="30sp" android:text="ORIGINAL MUSIC BY" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/avenir_light" android:textSize="24sp" android:text="Alison Cole &amp; Dave Smith for Groove Q" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="100dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/rabbit" android:textSize="30sp" android:text="SOUND DESIGN" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/avenir_light" android:textSize="24sp" android:text="Dave Smith for Groove Q" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="100dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/rabbit" android:textSize="30sp" android:text="APP DEVELOPMENT" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/avenir_light" android:textSize="24sp" android:text="Kelly McNamara" />
+            <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/avenir_light" android:textSize="24sp" android:text="Benjamin Frost" />
+
+            <Button
+                    android:textColor="@color/cpOrangered"
+                    android:background="@color/cpNavy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="100dp"
+                    android:textAlignment="center"
+                    android:text="Back"
+                />
+
+
+            
+        </LinearLayout>
+
+
+</ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

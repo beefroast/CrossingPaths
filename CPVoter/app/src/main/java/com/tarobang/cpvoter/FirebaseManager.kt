@@ -124,6 +124,16 @@ class FirebaseManager : ValueEventListener {
                 it.finish()
             }
 
+        } else if (status == "finished") {
+
+            this.currentActivity?.let {
+                val intent = Intent(it, CreditActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                it.startActivity(intent)
+                it.finish()
+            }
         }
 
 
