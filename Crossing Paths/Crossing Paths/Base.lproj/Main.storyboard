@@ -38,21 +38,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crossing Paths" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4S7-7R-77l">
-                                <rect key="frame" x="40" y="316.5" width="334" height="84"/>
-                                <fontDescription key="fontDescription" name="RabbitOnTheMoon-Italic" family="Rabbit On The Moon" pointSize="60"/>
-                                <color key="textColor" red="0.92549019610000005" green="0.59215686270000001" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="Tnk-Xz-kmN">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.78039215689999997" green="0.80000000000000004" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="4S7-7R-77l" firstAttribute="leading" secondItem="vma-4A-O0V" secondAttribute="leading" constant="40" id="OGo-DU-AHo"/>
-                            <constraint firstItem="4S7-7R-77l" firstAttribute="centerY" secondItem="mpC-aQ-f6E" secondAttribute="centerY" multiplier="0.8" id="YO5-5E-0U8"/>
-                            <constraint firstItem="4S7-7R-77l" firstAttribute="centerX" secondItem="mpC-aQ-f6E" secondAttribute="centerX" id="pJ4-Sg-Eov"/>
-                            <constraint firstItem="vma-4A-O0V" firstAttribute="trailing" secondItem="4S7-7R-77l" secondAttribute="trailing" constant="40" id="seC-38-5P6"/>
+                            <constraint firstItem="Tnk-Xz-kmN" firstAttribute="top" secondItem="mpC-aQ-f6E" secondAttribute="top" id="27O-IB-lQG"/>
+                            <constraint firstAttribute="bottom" secondItem="Tnk-Xz-kmN" secondAttribute="bottom" id="Ekp-YX-2rJ"/>
+                            <constraint firstAttribute="trailing" secondItem="Tnk-Xz-kmN" secondAttribute="trailing" id="H9t-dh-dIg"/>
+                            <constraint firstItem="Tnk-Xz-kmN" firstAttribute="leading" secondItem="mpC-aQ-f6E" secondAttribute="leading" id="lda-Aq-OOh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vma-4A-O0V"/>
                     </view>
@@ -558,6 +553,7 @@ Change your vote at any time by tilting the other way.</string>
         <image name="Right" width="83.333335876464844" height="68.333335876464844"/>
         <image name="cat" width="170.33332824707031" height="172"/>
         <image name="checkmark-flat" width="85.333335876464844" height="85.333335876464844"/>
+        <image name="splash" width="375" height="812"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="TtS-l9-HSt"/>
