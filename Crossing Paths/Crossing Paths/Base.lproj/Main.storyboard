@@ -448,7 +448,7 @@ Change your vote at any time by tilting the other way.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.9137254901960784" green="0.92941176470588238" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" red="0.69019607839999997" green="0.94117647059999998" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="6nA-IB-EEm" secondAttribute="bottom" constant="20" id="2MT-Jt-94O"/>
                                         <constraint firstItem="6nA-IB-EEm" firstAttribute="leading" secondItem="m4h-17-nwe" secondAttribute="leading" constant="20" id="bAW-Ix-DST"/>
@@ -528,7 +528,7 @@ Change your vote at any time by tilting the other way.</string>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.9137254901960784" green="0.92941176470588238" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.69019607839999997" green="0.94117647059999998" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="JPx-K2-spr" firstAttribute="leading" secondItem="c5c-mR-NqW" secondAttribute="leading" id="7oL-sP-B6b"/>
                             <constraint firstItem="JPx-K2-spr" firstAttribute="top" secondItem="c5c-mR-NqW" secondAttribute="top" id="Bm7-6D-FTA"/>

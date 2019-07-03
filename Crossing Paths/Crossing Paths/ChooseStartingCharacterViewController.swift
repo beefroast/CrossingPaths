@@ -84,18 +84,24 @@ class ChooseStartingCharacterViewController: UIViewController, UITableViewDelega
         
         cell.tickContainer.isHidden = (self.selectedIndex ?? -1 != indexPath.row)
         
-        if indexPath.row % 2 == 0 {
-            cell.backgroundColor = UIColor.cpMauve
-            cell.tickContainer.backgroundColor = UIColor.cpMauve
-        } else {
-            cell.backgroundColor = UIColor.cpYellow
-            cell.tickContainer.backgroundColor = UIColor.cpYellow
-        }
-        
+        let color = getColorForRow(index: indexPath.row)
+        cell.backgroundColor = color
+        cell.tickContainer.backgroundColor = color
         cell.layoutMargins = UIEdgeInsets.zero
 
         return cell
     }
+
+    func getColorForRow(index: Int) -> UIColor {
+        switch index % 4 {
+        case 0: return UIColor.cpMauve
+        case 1: return UIColor.cpYellow
+        case 2: return UIColor.cpLavender
+        case 3: return UIColor.cpGreen
+        default: return UIColor.white
+        }
+    }
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
