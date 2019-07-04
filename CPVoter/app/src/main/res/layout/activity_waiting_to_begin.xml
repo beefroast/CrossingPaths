@@ -5,10 +5,12 @@
               android:orientation="vertical">
 
     <TextView
+            android:background="@color/cpOrange"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:gravity="center"
             android:text="Waiting for film to begin"
             android:textColor="#000"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:fontFamily="@font/avenir_black"/>
 </LinearLayout>
