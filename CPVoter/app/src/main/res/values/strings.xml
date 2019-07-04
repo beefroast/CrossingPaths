@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">CP Voter</string>
     <string name="title_activity_enter_session">EnterSessionActivity</string>
+    <string name="tilt_message">Please hold your phone up vertically. Once vertical, you can tilt left and right to vote!\n\nChange your vote at any time by tilting the other way.</string>
 </resources>
