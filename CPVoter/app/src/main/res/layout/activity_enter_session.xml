@@ -8,30 +8,40 @@
                                                    android:id="@+id/linearLayout"
 >
     <TextView
-            android:layout_height="28dp"
-            android:layout_width="252dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="40dp"
+            android:textAlignment="center"
+
             android:text="Enter the screening code to begin"
             android:id="@+id/textView"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="155dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="80dp" android:layout_marginStart="80dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="80dp" android:layout_marginRight="80dp" android:layout_marginBottom="17dp"
-            app:layout_constraintBottom_toTopOf="@+id/room_name"/>
+
+            app:layout_constraintBottom_toTopOf="@+id/room_name"
+
+            />
+
     <EditText
             android:id="@+id/room_name"
 
             android:maxLength="10"
             android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345789"
-
-            android:layout_width="255dp"
-            android:layout_height="76dp"
             android:hint="Screening Code"
-            android:layout_marginTop="17dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="80dp" android:layout_marginRight="80dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="80dp"
-            android:layout_marginStart="80dp" android:layout_marginBottom="30dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_enter_room"/>
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+
+            app:layout_constraintBottom_toTopOf="@+id/btn_enter_room"
+
+
+            />
 
     <ProgressBar
 
@@ -49,60 +59,54 @@
 
 
             android:id="@+id/btn_enter_room"
-            android:layout_width="250dp"
-            android:layout_height="73dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
             android:text="Enter"
             android:fadingEdge="horizontal|vertical"
             android:background="@color/cpLavender" style="@style/AppTheme.RoundedCornerMaterialButton"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/room_name" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="80dp" android:layout_marginRight="80dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="80dp"
-            android:layout_marginStart="80dp" android:layout_marginBottom="40dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_facebook"/>
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:gravity="center"
+
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="100dp"
+    />
 
 
 
-    <!--<style name="MyButton" parent="Widget.MaterialComponents.Button.OutlinedButton">-->
-        <!--<item name="shapeAppearance">@style/MyShapeAppearance</item>-->
-    <!--</style>-->
-    <!--<style name="MyShapeAppearance">-->
-        <!--<item name="cornerFamilyTopLeft">rounded</item>-->
-        <!--<item name="cornerFamilyBottomLeft">rounded</item>-->
-        <!--<item name="cornerFamilyTopRight">rounded</item>-->
-        <!--<item name="cornerFamilyBottomRight">rounded</item>-->
-        <!--<item name="cornerSize">40dp</item>-->
-    <!--</style>-->
-            <!--style="@style/AppTheme.RoundedCornerMaterialButton"-->
-            <!--tools:layout_editor_absoluteX="64dp"-->
-            <!--tools:layout_editor_absoluteY="40dp"/>-->
+
 
     <Button
             android:id="@+id/btn_facebook"
-            android:layout_width="249dp"
-            android:layout_height="38dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
             android:text="Visit us on Facebook"
             android:background="@color/cpYellow"
-            android:layout_marginTop="176dp"
-            app:layout_constraintTop_toBottomOf="@+id/btn_enter_room" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="80dp" android:layout_marginStart="80dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="80dp" android:layout_marginRight="80dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_credits" android:layout_marginBottom="10dp"
+
+            app:layout_constraintBottom_toTopOf="@+id/btn_credits"
 
             android:stateListAnimator="@null"
 
     />
     <Button
             android:id="@+id/btn_credits"
-            android:layout_width="250dp"
-            android:layout_height="42dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
             android:text="View credits"
             android:background="@color/cpYellow"
-            app:layout_constraintBottom_toTopOf="@+id/btn_facebook"
-            android:layout_marginBottom="150dp" android:layout_marginTop="50dp"
-            app:layout_constraintTop_toBottomOf="@+id/btn_enter_room" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="80dp" android:layout_marginStart="80dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="81dp" android:layout_marginRight="81dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="100dp"
 
             android:stateListAnimator="@null"
     />
