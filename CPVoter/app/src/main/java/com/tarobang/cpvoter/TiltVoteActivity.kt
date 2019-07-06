@@ -14,6 +14,7 @@ import android.widget.TextView
 import kotlin.math.PI
 import kotlin.math.acos
 import kotlin.math.sqrt
+import android.util.Log
 
 class TiltVoteActivity : BaseActivity(), SensorEventListener {
 
@@ -59,19 +60,41 @@ class TiltVoteActivity : BaseActivity(), SensorEventListener {
 
     fun handleGravity(x: Float, y: Float, z: Float) {
 
-        if (z <= 0.0 && z >= -sqrt(0.5) == false) {
+
+
+
+        // For some reason the length of the vector is 10 instead of 1.
+        // We're going to 'normalize' the vector so that it has length
+        // of 1 so it makes some calculations a bit easier...
+
+        val originalLength = sqrt(x*x + y*y + z*z)
+        val uX = x/originalLength
+        val uY = y/originalLength
+        val uZ = z/originalLength
+
+        Log.v("tilt", "(x: " + uX + ", y: " + uY + ", z: " + uZ + ")")
+
+        // Now check to see if Z is within the range needed
+
+        // We want uZ to be between sqrt(0.5) and 0 or it's not upright enough
+
+        val isTiltedGood = (uZ >= 0.0) && (uZ <= sqrt(0.5))
+
+        if (isTiltedGood == false) {
+
+            Log.v("tilt", "Too tilty!")
 
             this.arrow.visibility = View.INVISIBLE
             this.textView.visibility = View.VISIBLE
             updateVote(Vote.NONE)
+            return
         }
 
         this.textView.visibility = View.GONE
 
-
         // Ignore the Z component and normalize the (X,Y) Vector
 
-        val length = sqrt(x*x + y*y)
+        val length = sqrt(uX*uX + uY*uY)
 
         val nX = x/length
         val nY = y/length
@@ -83,6 +106,7 @@ class TiltVoteActivity : BaseActivity(), SensorEventListener {
 
         if (radians <= 0.3) {
             // TODO: Bail out they're not voting
+            Log.v("tilt", "No votey")
             updateVote(Vote.NONE)
             this.arrow.visibility = View.INVISIBLE
         }
@@ -94,7 +118,7 @@ class TiltVoteActivity : BaseActivity(), SensorEventListener {
         } else {
             updateVote(Vote.RIGHT)
             this.arrow.visibility = View.VISIBLE
-            this.arrow.rotation = (radians * PI * 0.5).toFloat()
+            this.arrow.rotation = (radians * PI * 0.5).toFloat() + 180
         }
     }
 
