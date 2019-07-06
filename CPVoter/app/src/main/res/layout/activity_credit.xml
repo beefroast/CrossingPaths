@@ -50,6 +50,7 @@
             <TextView android:textColor="@color/cpNavy" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:textAlignment="center" android:fontFamily="@font/avenir_light" android:textSize="24sp" android:text="Benjamin Frost" />
 
             <Button
+                    android:id="@+id/end_credits_button"
                     android:textColor="@color/cpOrangered"
                     android:background="@color/cpNavy"
                     android:layout_width="match_parent"
