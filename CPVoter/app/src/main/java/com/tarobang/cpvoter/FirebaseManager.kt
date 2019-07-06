@@ -37,6 +37,19 @@ class FirebaseManager : ValueEventListener {
         roomReference?.let {
             it.child("status").removeEventListener(this)
         }
+        this.roomReference = null
+    }
+
+    fun goBackToRoomEntryScreen() {
+        this.stopListening()
+        this.currentActivity?.let {
+            val intent = Intent(it, EnterSessionActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+            it.startActivity(intent)
+            it.finish()
+        }
     }
 
     fun voteForCharacter(name: String) {
@@ -79,6 +92,8 @@ class FirebaseManager : ValueEventListener {
     override fun onCancelled(p0: DatabaseError) {
         Log.w("FB", "Cancelled")
     }
+
+
 
     override fun onDataChange(p0: DataSnapshot) {
 
@@ -124,6 +139,16 @@ class FirebaseManager : ValueEventListener {
                 it.finish()
             }
 
+        } else if (status == "finished") {
+
+            this.currentActivity?.let {
+                val intent = Intent(it, CreditActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                it.startActivity(intent)
+                it.finish()
+            }
         }
 
 

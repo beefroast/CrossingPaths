@@ -118,20 +118,35 @@ class PickCharacterActivity : BaseActivity() {
                 }
             }
 
+            val color = getColorFor(idx)
 
-            if ((idx % 2) == 0) {
-                rowView.setBackgroundColor(Color.parseColor("#DCA4C2"))
-                imgView.setBackgroundColor(Color.parseColor("#DCA4C2"))
-            } else {
-                rowView.setBackgroundColor(Color.parseColor("#E9EDB1"))
-                imgView.setBackgroundColor(Color.parseColor("#E9EDB1"))
-            }
+            rowView.setBackgroundColor(color)
+            imgView.setBackgroundColor(color)
 
             return rowView
         }
 
+        fun getColorFor(idx: Int): Int {
+            val r = idx % 4
+            if (r == 0) {
+                return Color.parseColor("#DCA4C2")
+            } else if (r == 1) {
+                return Color.parseColor("#E9EDB1")
+            } else if (r == 2) {
+                return Color.parseColor("#C7CCF4")
+            } else {
+                return Color.parseColor("#B0F0C8")
+            }
+        }
+
 
     }
+
+
+
+
+
+
 
     private class CharacterData(val name: String, val img: Int)
 }

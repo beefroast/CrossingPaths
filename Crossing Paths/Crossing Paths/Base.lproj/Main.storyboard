@@ -38,21 +38,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crossing Paths" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4S7-7R-77l">
-                                <rect key="frame" x="40" y="316.5" width="334" height="84"/>
-                                <fontDescription key="fontDescription" name="RabbitOnTheMoon-Italic" family="Rabbit On The Moon" pointSize="60"/>
-                                <color key="textColor" red="0.92549019610000005" green="0.59215686270000001" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="Tnk-Xz-kmN">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.78039215689999997" green="0.80000000000000004" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="4S7-7R-77l" firstAttribute="leading" secondItem="vma-4A-O0V" secondAttribute="leading" constant="40" id="OGo-DU-AHo"/>
-                            <constraint firstItem="4S7-7R-77l" firstAttribute="centerY" secondItem="mpC-aQ-f6E" secondAttribute="centerY" multiplier="0.8" id="YO5-5E-0U8"/>
-                            <constraint firstItem="4S7-7R-77l" firstAttribute="centerX" secondItem="mpC-aQ-f6E" secondAttribute="centerX" id="pJ4-Sg-Eov"/>
-                            <constraint firstItem="vma-4A-O0V" firstAttribute="trailing" secondItem="4S7-7R-77l" secondAttribute="trailing" constant="40" id="seC-38-5P6"/>
+                            <constraint firstItem="Tnk-Xz-kmN" firstAttribute="top" secondItem="mpC-aQ-f6E" secondAttribute="top" id="27O-IB-lQG"/>
+                            <constraint firstAttribute="bottom" secondItem="Tnk-Xz-kmN" secondAttribute="bottom" id="Ekp-YX-2rJ"/>
+                            <constraint firstAttribute="trailing" secondItem="Tnk-Xz-kmN" secondAttribute="trailing" id="H9t-dh-dIg"/>
+                            <constraint firstItem="Tnk-Xz-kmN" firstAttribute="leading" secondItem="mpC-aQ-f6E" secondAttribute="leading" id="lda-Aq-OOh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vma-4A-O0V"/>
                     </view>
@@ -291,10 +286,10 @@ Change your vote at any time by tilting the other way.</string>
                                 </constraints>
                             </view>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Left" translatesAutoresizingMaskIntoConstraints="NO" id="VxO-ys-EtS">
-                                <rect key="frame" x="57" y="298" width="300" height="300"/>
+                                <rect key="frame" x="7" y="248" width="400" height="400"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="PyY-hg-Arr"/>
-                                    <constraint firstAttribute="height" constant="300" id="mNg-KL-ala"/>
+                                    <constraint firstAttribute="width" constant="400" id="PyY-hg-Arr"/>
+                                    <constraint firstAttribute="height" constant="400" id="mNg-KL-ala"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -328,7 +323,7 @@ Change your vote at any time by tilting the other way.</string>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6xb-aX-Ans">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="heading" rowHeight="140" id="lRQ-dz-GSb" customClass="ThanksTableViewCell" customModule="Crossing_Paths" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="140"/>
@@ -340,11 +335,11 @@ Change your vote at any time by tilting the other way.</string>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JOB DESCRIPTION" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cF4-rT-2fj">
                                                     <rect key="frame" x="20" y="80" width="374" height="60"/>
                                                     <fontDescription key="fontDescription" name="RabbitOnTheMoon-Italic" family="Rabbit On The Moon" pointSize="30"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" red="0.23529411764705882" green="0.28627450980392155" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" red="0.92549019610000005" green="0.59215686270000001" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="cF4-rT-2fj" firstAttribute="top" secondItem="09T-6Y-Qdn" secondAttribute="top" constant="80" id="q4S-d1-JiP"/>
                                                 <constraint firstAttribute="bottom" secondItem="cF4-rT-2fj" secondAttribute="bottom" id="rRs-ev-mYz"/>
@@ -366,7 +361,7 @@ Change your vote at any time by tilting the other way.</string>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DB Cooper" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSs-Ug-364">
                                                     <rect key="frame" x="40" y="11" width="334" height="68"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="24"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" red="0.23529411764705882" green="0.28627450980392155" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -378,7 +373,7 @@ Change your vote at any time by tilting the other way.</string>
                                                 <constraint firstAttribute="trailingMargin" secondItem="nSs-Ug-364" secondAttribute="trailing" constant="20" id="uvi-U6-Jn6"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="label" destination="nSs-Ug-364" id="NIT-kb-ZSd"/>
                                         </connections>
@@ -410,7 +405,7 @@ Change your vote at any time by tilting the other way.</string>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.92549019607843142" green="0.59215686274509804" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iWM-sa-4M1" firstAttribute="leading" secondItem="YnM-Ow-qIW" secondAttribute="leading" constant="20" id="D7o-mq-F4S"/>
                             <constraint firstItem="6xb-aX-Ans" firstAttribute="top" secondItem="zdm-6B-DnP" secondAttribute="top" id="EMK-JV-ufI"/>
@@ -453,7 +448,7 @@ Change your vote at any time by tilting the other way.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.9137254901960784" green="0.92941176470588238" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" red="0.69019607839999997" green="0.94117647059999998" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="6nA-IB-EEm" secondAttribute="bottom" constant="20" id="2MT-Jt-94O"/>
                                         <constraint firstItem="6nA-IB-EEm" firstAttribute="leading" secondItem="m4h-17-nwe" secondAttribute="leading" constant="20" id="bAW-Ix-DST"/>
@@ -533,7 +528,7 @@ Change your vote at any time by tilting the other way.</string>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.9137254901960784" green="0.92941176470588238" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.69019607839999997" green="0.94117647059999998" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="JPx-K2-spr" firstAttribute="leading" secondItem="c5c-mR-NqW" secondAttribute="leading" id="7oL-sP-B6b"/>
                             <constraint firstItem="JPx-K2-spr" firstAttribute="top" secondItem="c5c-mR-NqW" secondAttribute="top" id="Bm7-6D-FTA"/>
@@ -558,6 +553,7 @@ Change your vote at any time by tilting the other way.</string>
         <image name="Right" width="83.333335876464844" height="68.333335876464844"/>
         <image name="cat" width="170.33332824707031" height="172"/>
         <image name="checkmark-flat" width="85.333335876464844" height="85.333335876464844"/>
+        <image name="splash" width="375" height="812"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="TtS-l9-HSt"/>
