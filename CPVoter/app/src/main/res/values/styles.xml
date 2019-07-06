@@ -14,4 +14,26 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+
+    <!--Trying rounded button v1. cant change colour-->
+    <style name="AppTheme.RoundedCornerMaterialButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/rounded_shape</item>
+    </style>
+
+
+
+
+
+    <!--Trying rounded button v2 - kinda just fucked-->
+    <!--<style name="MyButton" parent="Widget.MaterialComponents.Button.OutlinedButton">-->
+        <!--<item name="shapeAppearance">@style/MyShapeAppearance</item>-->
+    <!--</style>-->
+    <!--<style name="MyShapeAppearance">-->
+        <!--<item name="cornerFamilyTopLeft">rounded</item>-->
+        <!--<item name="cornerFamilyBottomLeft">rounded</item>-->
+        <!--<item name="cornerFamilyTopRight">cut</item>-->
+        <!--<item name="cornerFamilyBottomRight">cut</item>-->
+        <!--<item name="cornerSize">8dp</item>-->
+    <!--</style>-->
+
 </resources>
