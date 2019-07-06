@@ -11,6 +11,8 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_enter_session.*
 import android.content.Intent
 import android.net.Uri
+import android.view.View
+import android.widget.ProgressBar
 
 
 class EnterSessionActivity : BaseActivity() {
@@ -24,9 +26,13 @@ class EnterSessionActivity : BaseActivity() {
         val enterRoomButton = findViewById<Button>(R.id.btn_enter_room)
         val facebookButton = findViewById<Button>(R.id.btn_facebook)
         val creditsButton = findViewById<Button>(R.id.btn_credits)
-
+        val spinner = findViewById<ProgressBar>(R.id.progress_bar)
 
         enterRoomButton.setOnClickListener {
+
+            enterRoomButton.visibility = View.INVISIBLE
+            spinner.visibility = View.VISIBLE
+            txtRoomName.isEnabled = false
 
             val roomName = txtRoomName.text.toString()
             FirebaseManager.instance.startListeningTo(roomName)
