@@ -4,6 +4,9 @@ import android.content.Intent
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import android.app.ProgressDialog
+
+
 
 enum class Vote {
     NONE, LEFT, RIGHT
@@ -19,6 +22,7 @@ class FirebaseManager : ValueEventListener {
     var currentActivity: BaseActivity? = null
 
     fun startListeningTo(session: String) {
+
 
         val root: DatabaseReference = FirebaseDatabase.getInstance().reference
 

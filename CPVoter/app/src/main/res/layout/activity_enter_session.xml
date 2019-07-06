@@ -28,7 +28,22 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="80dp"
             android:layout_marginStart="80dp" android:layout_marginBottom="30dp"
             app:layout_constraintBottom_toTopOf="@+id/btn_enter_room"/>
+
+    <ProgressBar
+
+            android:id="@+id/progress_bar"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/btn_enter_room"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_enter_room"
+            app:layout_constraintLeft_toLeftOf="@+id/btn_enter_room"
+            app:layout_constraintRight_toRightOf="@+id/btn_enter_room"
+    />
+
     <Button
+
+
             android:id="@+id/btn_enter_room"
             android:layout_width="250dp"
             android:layout_height="73dp"
@@ -41,6 +56,8 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="80dp"
             android:layout_marginStart="80dp" android:layout_marginBottom="40dp"
             app:layout_constraintBottom_toTopOf="@+id/btn_facebook"/>
+
+
 
     <!--<style name="MyButton" parent="Widget.MaterialComponents.Button.OutlinedButton">-->
         <!--<item name="shapeAppearance">@style/MyShapeAppearance</item>-->
@@ -66,7 +83,11 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_enter_room" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="80dp" android:layout_marginStart="80dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="80dp" android:layout_marginRight="80dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_credits" android:layout_marginBottom="10dp"/>
+            app:layout_constraintBottom_toTopOf="@+id/btn_credits" android:layout_marginBottom="10dp"
+
+            android:stateListAnimator="@null"
+
+    />
     <Button
             android:id="@+id/btn_credits"
             android:layout_width="250dp"
@@ -77,6 +98,9 @@
             android:layout_marginBottom="150dp" android:layout_marginTop="50dp"
             app:layout_constraintTop_toBottomOf="@+id/btn_enter_room" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="80dp" android:layout_marginStart="80dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="81dp" android:layout_marginRight="81dp"/>
+            android:layout_marginEnd="81dp" android:layout_marginRight="81dp"
+
+            android:stateListAnimator="@null"
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
