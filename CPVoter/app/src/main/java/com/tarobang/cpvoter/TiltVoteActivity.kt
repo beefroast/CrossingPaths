@@ -46,8 +46,12 @@ class TiltVoteActivity : BaseActivity(), SensorEventListener {
     }
 
     override fun onDestroy() {
+        Log.v("tilt", "DESTROY!")
         super.onDestroy()
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
+        val sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        sensorManager.unregisterListener(this)
     }
 
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
