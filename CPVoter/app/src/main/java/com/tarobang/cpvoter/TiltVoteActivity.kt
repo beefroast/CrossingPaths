@@ -15,6 +15,7 @@ import kotlin.math.PI
 import kotlin.math.acos
 import kotlin.math.sqrt
 import android.util.Log
+import android.view.WindowManager
 
 class TiltVoteActivity : BaseActivity(), SensorEventListener {
 
@@ -36,9 +37,17 @@ class TiltVoteActivity : BaseActivity(), SensorEventListener {
         this.arrow.visibility = View.INVISIBLE
         this.textView.visibility = View.VISIBLE
 
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+
         sensor?.let { sensor ->
             sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_GAME)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
@@ -72,7 +81,7 @@ class TiltVoteActivity : BaseActivity(), SensorEventListener {
         val uY = y/originalLength
         val uZ = z/originalLength
 
-        Log.v("tilt", "(x: " + uX + ", y: " + uY + ", z: " + uZ + ")")
+//        Log.v("tilt", "(x: " + uX + ", y: " + uY + ", z: " + uZ + ")")
 
         // Now check to see if Z is within the range needed
 
@@ -96,12 +105,12 @@ class TiltVoteActivity : BaseActivity(), SensorEventListener {
 
         val length = sqrt(uX*uX + uY*uY)
 
-        val nX = x/length
-        val nY = y/length
+        val nX = uX/length
+        val nY = uY/length
 
         // Get the angle between (nX, nY) and straight down
 
-        val cosineAngle = nY * -1.0
+        val cosineAngle = nY
         val radians = acos(cosineAngle)
 
         if (radians <= 0.3) {
@@ -109,16 +118,19 @@ class TiltVoteActivity : BaseActivity(), SensorEventListener {
             Log.v("tilt", "No votey")
             updateVote(Vote.NONE)
             this.arrow.visibility = View.INVISIBLE
+            return
         }
 
+        Log.v("tilt", "nX = " + nX)
+
         if (nX < 0.0) {
-            updateVote(Vote.LEFT)
-            this.arrow.visibility = View.VISIBLE
-            this.arrow.rotation = (radians * PI * 0.5).toFloat()
-        } else {
             updateVote(Vote.RIGHT)
             this.arrow.visibility = View.VISIBLE
-            this.arrow.rotation = (radians * PI * 0.5).toFloat() + 180
+            this.arrow.rotation = (-radians / PI * 180).toFloat() + 180
+        } else {
+            updateVote(Vote.LEFT)
+            this.arrow.visibility = View.VISIBLE
+            this.arrow.rotation = (radians / PI * 180).toFloat()
         }
     }
 
