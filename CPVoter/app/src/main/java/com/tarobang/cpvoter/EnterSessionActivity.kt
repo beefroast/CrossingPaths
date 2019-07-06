@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.*
 
 import kotlinx.android.synthetic.main.activity_enter_session.*
+import android.content.Intent
+import android.net.Uri
+
 
 class EnterSessionActivity : BaseActivity() {
 
@@ -30,7 +33,20 @@ class EnterSessionActivity : BaseActivity() {
 
         }
 
+        facebookButton.setOnClickListener {
 
+            val browserIntent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.facebook.com/crossingpathsfilm/")
+            )
+            startActivity(browserIntent)
+
+        }
+
+        creditsButton.setOnClickListener {
+            val intent = Intent(this, CreditActivity::class.java)
+            startActivity(intent)
+        }
 
 
 
