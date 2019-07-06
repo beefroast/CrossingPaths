@@ -20,20 +20,19 @@ class FirebaseManager : ValueEventListener {
 
     var roomReference: DatabaseReference? = null
     var currentActivity: BaseActivity? = null
+    var enterSessionActivity: EnterSessionActivity? = null
 
-    fun startListeningTo(session: String) {
-
+    fun startListeningTo(session: String, fromActivity: EnterSessionActivity) {
 
         val root: DatabaseReference = FirebaseDatabase.getInstance().reference
 
         stopListening()
 
         this.roomReference = root.child(session)
-
-
+        this.enterSessionActivity = fromActivity
 
         roomReference?.let {
-            it.child("status").addValueEventListener(this)
+             it.child("status").addValueEventListener(this)
         }
     }
 
@@ -108,6 +107,12 @@ class FirebaseManager : ValueEventListener {
         if (status == null) {
             // There's no status, so we should stop listening
             stopListening()
+
+            this.enterSessionActivity?.let {
+                it.stopSpinningAndReportError("A session with that name does not exist")
+            }
+            this.enterSessionActivity = null
+
             return
 
         } else if (status == "waiting") {

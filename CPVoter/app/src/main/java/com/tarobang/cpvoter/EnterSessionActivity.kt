@@ -17,16 +17,22 @@ import android.widget.ProgressBar
 
 class EnterSessionActivity : BaseActivity() {
 
+    lateinit var txtRoomName: EditText
+    lateinit var enterRoomButton: Button
+    lateinit var facebookButton: Button
+    lateinit var creditsButton: Button
+    lateinit var spinner: ProgressBar
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_enter_session)
 
-        val txtRoomName = findViewById<EditText>(R.id.room_name)
-        val enterRoomButton = findViewById<Button>(R.id.btn_enter_room)
-        val facebookButton = findViewById<Button>(R.id.btn_facebook)
-        val creditsButton = findViewById<Button>(R.id.btn_credits)
-        val spinner = findViewById<ProgressBar>(R.id.progress_bar)
+        this.txtRoomName = findViewById<EditText>(R.id.room_name)
+        this.enterRoomButton = findViewById<Button>(R.id.btn_enter_room)
+        this.facebookButton = findViewById<Button>(R.id.btn_facebook)
+        this.creditsButton = findViewById<Button>(R.id.btn_credits)
+        this.spinner = findViewById<ProgressBar>(R.id.progress_bar)
 
         enterRoomButton.setOnClickListener {
 
@@ -35,7 +41,7 @@ class EnterSessionActivity : BaseActivity() {
             txtRoomName.isEnabled = false
 
             val roomName = txtRoomName.text.toString()
-            FirebaseManager.instance.startListeningTo(roomName)
+            FirebaseManager.instance.startListeningTo(roomName, this)
 
         }
 
@@ -54,8 +60,13 @@ class EnterSessionActivity : BaseActivity() {
             startActivity(intent)
         }
 
+    }
 
-
+    fun stopSpinningAndReportError(message: String) {
+        this.spinner.visibility = View.INVISIBLE
+        this.enterRoomButton.visibility = View.VISIBLE
+        this.txtRoomName.error = message
+        this.txtRoomName.isEnabled = true
     }
 
 }

@@ -19,6 +19,10 @@
             app:layout_constraintBottom_toTopOf="@+id/room_name"/>
     <EditText
             android:id="@+id/room_name"
+
+            android:maxLength="10"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345789"
+
             android:layout_width="255dp"
             android:layout_height="76dp"
             android:hint="Screening Code"
