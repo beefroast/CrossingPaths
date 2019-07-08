@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/6.1.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/6.1.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/6.1.1/firebase-database.js"></script>
+    <script defer src="/__/firebase/6.1.1/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/6.1.1/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+
+      .outer {
+        display: table;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      .middle {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      .inner {
+        margin-left: auto;
+        margin-right: auto;
+        width: 400px;
+        /*whatever width you want*/
+      }
+
+      .progress {
+        width:200px;
+        height:50px;
+        border:1px solid black;
+        background: -webkit-linear-gradient(left, black 50%, white 50%);
+        background: -moz-linear-gradient(left, black 50%, white 50%);
+        background: -ms-linear-gradient(left, black 50%, white 50%);
+        background: linear-gradient(left, black 50%, white 50%);
+      }
+
+      .red {
+        width: 100%;
+        background-color: rgb(1,0,0);
+      }
+
+      .fullTable {
+        width: 100%;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      h1.lessvotes {
+        color: gray;
+      }
+
+    </style>
+  </head>
+  <body>
+
+
+      <div class="outer">
+        <div class="middle">
+          <div class="inner">
+            <div id="main">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script>
+
+      function findGetParameter(parameterName) {
+            var result = null,
+                tmp = [];
+            location.search
+                .substr(1)
+                .split("&")
+                .forEach(function (item) {
+                  tmp = item.split("=");
+                  if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+                });
+            return result;
+        }
+
+        function startFilm(parameter) {
+
+            // console.log(JSON.stringify(parameter));
+
+            var roomName = parameter.getAttribute('room');
+
+            var checkBox = document.getElementById("allowCharacterVotes");
+
+            if (checkBox === null) {
+              firebase.database().ref(roomName).child('status').set('playing');
+              return;
+            }
+
+            var allowVotes = checkBox.checked
+
+            if (allowVotes === true) {
+              firebase.database().ref(roomName).child('status').set('picking');
+            } else {
+              firebase.database().ref(roomName).child('status').set('playing');
+            }
+
+        }
+
+        function endFilm(parameter) {
+          var roomName = parameter.getAttribute('room');
+          firebase.database().ref(roomName).child('status').set('finished');
+        }
+
+        function endFilmWithPicker(parameter) {
+          var roomName = parameter.getAttribute('room');
+          firebase.database().ref(roomName).child('status').set('picking');
+        }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+          var roomName = findGetParameter("room");
+
+          if (roomName === null) {
+
+              // We show the input code in here, they can input a room name
+
+              document.getElementById('main').innerHTML =
+                '<h2>Crossing Paths Admin Console</h2>' +
+                '<p>Enter a viewing name to create a new viewing session, users will enter this viewing name in the app to connect.</p>' +
+                '<form>' +
+                '<input type="text" name="room" value="" maxlength="10">' +
+                '<input type="submit" value="Create Viewing">' +
+                '</form> ';
+
+
+          } else {
+
+              // We now connect to the room they want
+
+              document.getElementById('main').innerHTML = "<p>Entering room</p>";
+
+              firebase.database().ref(roomName).on('value', snapshot => {
+
+                    console.log('We got into the room ' + roomName);
+
+                    var status = snapshot.child('status').val();
+
+                    console.log('Status is ' + status);
+
+                    if (status === null) {
+
+                        // The room doesn't exist currently, so let's make a room, and put the
+                        // default data into it...
+
+                        firebase.database().ref(roomName).set({
+                            'status': 'waiting'
+                        });
+
+                    } else if (status === 'finished') {
+
+                        document.getElementById('main').innerHTML =
+                            '<h2>'+roomName+'</h2>' +
+                            '<p>Film is finished, everyone in the room is now looking at credits!</p>' +
+                            '<a href="https://crossing-paths-4a11d.firebaseapp.com/">Back to console</a>';
+
+                    } else if (status === 'waiting') {
+
+                        // We're waiting for users to join before we begin the film, show a button
+                        // that lets the operator start the film...
+
+                        document.getElementById('main').innerHTML =
+                            '<h2>'+roomName+'</h2>' +
+                            '<p>Now waiting for viewers to join the room.</p>' +
+                            '<form onsubmit="return false">' +
+                            '<input id="allowCharacterVotes" type="checkbox" name="pickingCharacter" value="pickingCharacter">Allow viewers to select starting character<br>' +
+                            '<input type="submit" onClick="startFilm(this)" value="Start Film" room="'+roomName+'" ><br>' +
+
+                            '</form>';
+
+                    } else if (status === 'picking') {
+
+                        // The viewers are voting for a character, so we show all the characters and which
+                        // ones they've voted for...
+                        var characterVotes = {
+                          "Dunc": 0,
+                          "Zoe": 0,
+                          "Ryan": 0,
+                          "Ness": 0,
+                          "Poe": 0,
+                          "Ed": 0,
+                          "Mandy": 0,
+                          "Ruby": 0,
+                          "Bella": 0,
+                          "Lena": 0,
+                          "Ricky": 0,
+                          "Kelsie": 0
+                        };
+
+                        var orderedKeys = [
+                          "Dunc",
+                          "Zoe",
+                          "Ryan",
+                          "Ness",
+                          "Poe",
+                          "Ed",
+                          "Mandy",
+                          "Ruby",
+                          "Bella",
+                          "Lena",
+                          "Ricky",
+                          "Kelsie"
+                        ];
+
+                        // Count the votes
+                        var totalVotes = 0;
+
+                        snapshot.child('characterVotes').forEach(function(child) {
+                            var key = child.val();
+                            var voteCount = characterVotes[key];
+                            characterVotes[key] = voteCount + 1;
+                            totalVotes += 1;
+                        });
+
+                        characterVotesAsArray = orderedKeys.map(function (key) {
+                          return {
+                            "person": key,
+                            "votes": characterVotes[key]
+                          }
+                        });
+
+                        characterVotesAsArray.sort(function (a, b) {
+                          return b.votes - a.votes;
+                        });
+
+                        document.getElementById('main').innerHTML =
+                            '<h2>'+roomName+'</h2>' +
+                            '<p>Collecting votes for starting character.</p>' +
+                            '<div class="votes">' +
+
+                            '<table class="fullTable">' +
+
+                            characterVotesAsArray.map(function (x) {
+                              return '<tr>'
+                                + '<td>' + x.person + '</td>'
+                                + '<td>' + x.votes + '</td>'
+                                + '<td><div class="red"></div></td>'
+                                + '</tr>';
+                            }).join("") +
+
+                            '</table><hr>' +
+
+                            '<form onsubmit="return false">' +
+                            '<input type="submit" onClick="startFilm(this)" value="Start Film" room="'+roomName+'" ><br>' +
+                            '</form>';
+
+                            '</div>' +
+                            '';
+
+
+                    } else if (status === "playing") {
+
+                        // Count up the votes...
+
+                        var leftVotes = 0;
+                        var rightVotes = 0;
+
+                        snapshot.child('leftRightVotes').forEach(function(child) {
+
+                            if (child.val() === "left") {
+                                leftVotes = leftVotes+1;
+
+                            } else if (child.val() === "right") {
+                                rightVotes = rightVotes+1;
+                            }
+
+                        });
+
+                        // Display the votes to the operator
+
+                        var leftClass = ((leftVotes <= rightVotes) ? 'class="lessvotes"' : "");
+                        var rightClass = ((rightVotes <= leftVotes) ? 'class="lessvotes"' : "");
+
+                        document.getElementById('main').innerHTML =
+                            '<h2>'+ roomName +'</h2>' +
+                            '<p>Playing film</p>' +
+                            '<table class="fullTable">' +
+                            '<tr><td><h1 '+leftClass+'>'+leftVotes+'</h1></td><td><h1 '+rightClass+'>'+rightVotes+'</h1></td></tr>' +
+                            '</table><hr>' +
+                            '<form onsubmit="return false">' +
+                            '<input type="submit" onClick="endFilm(this)" value="Go to credits" room="'+roomName+'">' +
+                            '<input type="submit" onClick="endFilmWithPicker(this)" value="Go to character selection" room="'+roomName+'">' +
+                            '</form> ';
+
+                    }
+
+
+
+
+
+          });
+
+          }
+
+
+
+
+
+      });
+    </script>
+  </body>
+</html>
