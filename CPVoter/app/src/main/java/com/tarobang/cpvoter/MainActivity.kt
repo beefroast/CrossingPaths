@@ -9,12 +9,18 @@ import android.view.WindowManager
 import android.os.Build
 import android.util.Log
 import android.view.View
+import com.testfairy.TestFairy
 
 class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
+        TestFairy.begin(this, "SDK-axPeCwRE")
         setContentView(R.layout.activity_main)
+
+
+
 
         // If the Android version is lower than Jellybean, use this call to hide
         // the status bar.
