@@ -10,7 +10,7 @@ import SelectCharacterScreen from './SelectCharacterScreen/index.js';
 
 function App() {
   return (
-    <SelectCharacterScreen />
+    <VoteLeftRightScreen />
   );
 }
 
